@@ -72,7 +72,7 @@ class DisputeResolution {
 
           return {
             dispute_id: disputeId,
-            ...obj,
+            ...(obj as Record<string, any>),
           } as Dispute;
         });
       }
