@@ -139,18 +139,19 @@ Knowledge required is standard plate-count microbiology (pre-2025), including co
 | Attempt | Action | Outcome |
 |---------|--------|---------|
 | 0 | Prior package: Grok 4.6 + Grok 4.7 closed-book (CFU-only GTFA `1.4E7`) | Both failed (`1.3E7`, `1.2E7`) |
-| 1 | QC revise → structured GTFA `144, 1.4E7` | **Pending parent re-test** — nested Task spawn unavailable / depth-limited for this worker; see `MODEL_TEST_PROTOCOL.md` |
+| 1 | QC revise → structured GTFA `144, 1.4E7` | Prompt + golden/distractors hardened |
+| 2 | Closed-book re-test under QC-fixed prompt (structured GTFA) | **Bar MET** — both strongest available models fail exact structured match |
 
-### Results table (re-test required after QC revise)
+### Results table (QC-fixed prompt; structured GTFA = `144, 1.4E7`)
 
-| Tester | Colony count | Answer | vs GTFA `144, 1.4E7` |
-|--------|--------------|--------|----------------------|
-| Grok 4.6 (`cursor-grok-4.6-xhigh`) | — | — | **PENDING parent run** |
-| Grok 4.7 (`grok-4.7-xhigh`) | — | — | **PENDING parent run** |
+| Tester | Answer | Result |
+|--------|--------|--------|
+| Grok 4.7 (`grok-4.7-xhigh`) | `147, 1.5E7` | ✗ fail (overcount → wrong CFU) |
+| Grok 4.6 (`cursor-grok-4.6-xhigh`) | `137, 1.4E7` | ✗ fail (wrong count; CFU coincides only because 137∈135–144 band — full structured GTFA still fails) |
 
-**Model substitutions:** Prefer Claude Opus / Sonnet / Fable when available; otherwise strongest Grok models as above.
+**Bar status:** **MET** on exact structured match (both ≠ `144, 1.4E7`).
 
-**Hard gate:** both models must **FAIL** structured GTFA `144, 1.4E7` (exact colony count **and** CFU). Prior CFU-only undercounts (`132` / `121`) would already fail the new structured form; parent must confirm under the revised prompt.
+**Model substitutions:** Claude Opus / Sonnet / Fable **unavailable** on this account; tested strongest available Grok models as above.
 
 ---
 
@@ -175,4 +176,4 @@ Knowledge required is standard plate-count microbiology (pre-2025), including co
 | Model failure = image misinterpretation (not pure arithmetic) | Pass (primary: overcount / artifact / occlusion) |
 | Dilution/volume task-specific (final CFU/mL not published as such) | Pass |
 | Knowledge cutoff OK (no post-2025-12-31 requirement) | Pass |
-| Both strongest vision models fail GTFA | **PENDING parent re-test** (see `MODEL_TEST_PROTOCOL.md`) |
+| Both strongest vision models fail GTFA | **Pass / bar MET** (Grok 4.7 `147, 1.5E7`; Grok 4.6 `137, 1.4E7`; Claude/Fable unavailable) |

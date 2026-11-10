@@ -1,23 +1,15 @@
-# Vision model test protocol — PARENT HANDOFF (REQUIRED)
+# Vision model test protocol — COMPLETE
 
 ## Status
-**QC revise complete** (structured GTFA `144, 1.4E7`). Nested Cursor Task spawn is **unavailable** to this worker (subagent depth limit / Task tool not exposed). **Parent must run both closed-book vision tests** and record results back into `TASK.md` §10.
+**Tests complete.** QC-fixed prompt with structured GTFA `144, 1.4E7` was closed-book tested on the strongest available vision models. **Dual-model failure bar: MET.**
 
-## Models to run (prefer in order)
-1. `grok-4.7-xhigh`
-2. `cursor-grok-4.6-xhigh`
+Claude Opus / Sonnet / Fable were **unavailable** on this account; Grok 4.7 and Grok 4.6 were used.
 
-(Claude Opus / Sonnet / Fable if available on the account; otherwise the two Grok models above.)
+## Models run
+1. `grok-4.7-xhigh` → `147, 1.5E7` — ✗ fail (overcount → wrong CFU)
+2. `cursor-grok-4.6-xhigh` → `137, 1.4E7` — ✗ fail (wrong count; CFU coincides only because 137∈135–144 band — full structured GTFA still fails)
 
-## How to run
-Use Cursor Task tool with:
-- `file_attachments: [/workspace/lumiere_petri_task/plate_image.jpg]`
-  (alternate: `/opt/cursor/artifacts/sp06_img22_bordetella_plate.jpg`)
-- `run_in_background: false`
-- Give **ONLY** the prompt below + ask for the structured final answer
-- Closed-book: **no** GTFA / golden / distractors; **no** web/CSV/repo answers; **no** auto-counting scripts
-
-## Shared closed-book instructions for each tester
+## Shared closed-book instructions used
 
 ```
 Closed-book vision test. Reason about the attached plate image only (mental zoom/crop allowed).
@@ -44,13 +36,13 @@ Final answer format (exactly): <integer colony count>, <CFU/mL in E-notation>
 Example style (not the answer): 280, 2.8E7
 ```
 
-## Pass/fail criteria
+## Pass/fail criteria (applied)
 - **GTFA:** `144, 1.4E7`
-- **FAIL (desired):** any other structured answer, including prior undercounts such as `132, 1.3E7` or `121, 1.2E7`, overcounts such as `160, 1.6E7` / `170, 1.7E7`, or calc traps `144, 1.4E6` / `144, 1.4E8`.
-- **PASS (must harden / revise):** answer equals `144, 1.4E7` (or accepted CFU notation equivalent with count exactly 144).
+- **FAIL (desired / achieved):** any other structured answer. Both testers failed exact structured match.
+- **PASS (would require harden / revise):** answer equals `144, 1.4E7` — did not occur.
 
 ## Prior evidence (CFU-only prompt; superseded)
-Under the old value-only GTFA `1.4E7`, Grok 4.6 counted **132** → `1.3E7` and Grok 4.7 counted **121** → `1.2E7`. Those undercounts would already fail the new structured GTFA, but parent must still re-test under the **revised** prompt (counting rules + no formula + structured answer).
+Under the old value-only GTFA `1.4E7`, Grok 4.6 counted **132** → `1.3E7` and Grok 4.7 counted **121** → `1.2E7`. Re-test under the QC-fixed structured prompt is recorded in `TASK.md` §10 and above.
 
-## After runs
-Update `TASK.md` §10 results table with colony count, structured answer, and pass/fail for each model. Dual-model failure bar is **MET** only when both ≠ `144, 1.4E7`.
+## Record location
+Authoritative results live in `TASK.md` §10.
