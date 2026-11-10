@@ -1,14 +1,29 @@
-# Vision model test protocol (parent agent must run)
+# Vision model test protocol — COMPLETED
 
-## Blocker for this subagent
-`CallDynamicTool(namespace=cursor, toolName=Task, …)` returned:
-**`Subagent child workflow depth limit of 1 reached`**
+## Status
+Closed-book dual-model vision tests are **done**. Dual-model failure bar **MET**. No further tester runs required unless the image/prompt/GTFA are revised.
 
-This worker is already a subagent, so it cannot spawn the required Opus/Sonnet vision testers. The **parent agent** must run the two Task calls below (`run_in_background: false`), then either:
-- update `TASK.md` test-results table if **both fail**, or
-- revise dilution / harden the visual traps and re-test if either lands on `1.4E7`.
+## Model substitutions
+Claude Opus / Sonnet / Fable were **unavailable** (weekly usage). Dual-model bar was met with the strongest available Grok models:
+- Grok 4.6 (`cursor-grok-4.6-xhigh`)
+- Grok 4.7 (`grok-4.7-xhigh`)
 
-## Shared closed-book instructions for each tester
+## Results (both FAILED — desired)
+
+| Tester | Colony count | Answer | vs GTFA `1.4E7` |
+|--------|--------------|--------|------------------|
+| Grok 4.6 (`cursor-grok-4.6-xhigh`) | 132 | 1.3E7 | ✗ fail |
+| Grok 4.7 (`grok-4.7-xhigh`) | 121 | 1.2E7 | ✗ fail |
+
+**Failure modes:** undercounts (occlusion / dense-field miss) → `1.3E7` and `1.2E7`; Grok 4.7 matches distractor pattern `1.2E7`; Grok 4.6 near undercount.
+
+**Expert GTFA** remains N=144 → `1.4E7` (tolerance 135–144). Image / prompt / GTFA **unchanged** (no revise).
+
+## Historical blocker (resolved via parent runs)
+Earlier: `CallDynamicTool(namespace=cursor, toolName=Task, …)` returned
+**`Subagent child workflow depth limit of 1 reached`** for nested subagent Testers. Parent agent completed the closed-book runs above.
+
+## Shared closed-book instructions (for re-test only)
 Attach: `/workspace/lumiere_petri_task/plate_image.jpg`  
 (or `/opt/cursor/artifacts/sp06_img22_bordetella_plate.jpg`)
 
@@ -19,7 +34,7 @@ Rules for the tester:
 - Do **not** ask for the GTFA or look for task answer keys in the repo.
 - Return **only**: (1) brief colony count used, (2) final answer in required E-notation.
 
-## Prompt text to give testers (task prompt only — no GTFA / golden / distractors)
+## Prompt text (task prompt only — no GTFA / golden / distractors)
 
 ```
 You are analyzing a digital photograph of a blood agar culture plate from a quantitative plate-count assay.
@@ -38,13 +53,7 @@ Final answer: the CFU/mL value only (e.g., 2.5E7).
 Also state, in one short line, the integer colony count you used before the calculation.
 ```
 
-## Required Task calls
-1. Model A: `claude-opus-5-5-high` (fallback: `claude-opus-5-5-xhigh` / `claude-opus-5-5-max` / `claude-opus-5-5-medium`)
-2. Model B: `claude-sonnet-5-5-high` (fallback: `claude-sonnet-5-5-xhigh` / `claude-sonnet-5-5-max` / `claude-sonnet-5-5-medium`)
-
-Both with `run_in_background: false` and `file_attachments` pointing at the plate image.
-
-## Pass/fail
+## Pass/fail criteria (reference)
 - **GTFA:** `1.4E7`
-- **FAIL (desired):** any other answer, including `1.2E7`, `1.6E7`, `1.4E6`, `1.4E8`, etc.
+- **FAIL (desired):** any other answer, including `1.2E7`, `1.3E7`, `1.6E7`, `1.4E6`, `1.4E8`, etc.
 - **PASS (must revise task):** answer equals `1.4E7` or equivalent, or a count in 135–144 that the model then correctly rounds to `1.4E7`.

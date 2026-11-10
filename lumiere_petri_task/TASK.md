@@ -136,16 +136,21 @@ Knowledge required is standard plate-count microbiology (pre-2025). No post-2025
 | Attempt | Action | Outcome |
 |---------|--------|---------|
 | 0 | Subagent tried `cursor` / `Task` with Opus & Sonnet | **Blocked:** `Subagent child workflow depth limit of 1 reached` |
-| 1+ | **Parent must run** protocol in `MODEL_TEST_PROTOCOL.md` | Pending |
+| 1 | Parent closed-book vision tests | Claude Opus / Sonnet / Fable **unavailable** (weekly usage). Substituted strongest available Grok models. |
+| 2 | Grok 4.6 + Grok 4.7 closed-book runs | **Both FAILED** (desired). Dual-model failure bar **MET**. No revise. |
 
-### Results table (fill after parent Task runs)
+### Results table
 
-| Model slug | Colony count used | Final answer | Pass/Fail vs GTFA `1.4E7` | Notes |
-|------------|-------------------|--------------|--------------------------|-------|
-| `claude-opus-5-5-high` (or closest available) | *pending* | *pending* | *pending — must FAIL* | Attach `plate_image.jpg`; closed-book |
-| `claude-sonnet-5-5-high` (or closest available) | *pending* | *pending* | *pending — must FAIL* | Attach `plate_image.jpg`; closed-book |
+| Tester | Colony count | Answer | vs GTFA `1.4E7` |
+|--------|--------------|--------|------------------|
+| Grok 4.6 (`cursor-grok-4.6-xhigh`) | 132 | 1.3E7 | ✗ fail |
+| Grok 4.7 (`grok-4.7-xhigh`) | 121 | 1.2E7 | ✗ fail |
 
-**Hard gate:** both models must **FAIL** (answer ≠ `1.4E7` and not a count in the 135–144 band that rounds to GTFA). If either passes, revise (harder visual region / different dilution mapping near-miss counts to other E-notation) and re-test.
+**Model substitutions:** Claude Opus / Sonnet / Fable were unavailable (weekly usage). Dual-model bar met with strongest available Grok models.
+
+**Failure modes:** undercounts (occlusion / dense-field miss) → `1.3E7` and `1.2E7`; Grok 4.7 matches distractor pattern `1.2E7`; Grok 4.6 near undercount. Expert GTFA remains N=144 → `1.4E7` (tolerance 135–144).
+
+**Hard gate:** both models must **FAIL** (answer ≠ `1.4E7` and not a count in the 135–144 band that rounds to GTFA). **MET** — both failed; image / prompt / GTFA unchanged.
 
 ---
 
@@ -165,7 +170,7 @@ Knowledge required is standard plate-count microbiology (pre-2025). No post-2025
 | No explicit MC; implied space ≥10; candidates not listed | Pass |
 | Image description ≥200 words; no GTFA spoiler | Pass |
 | Exactly 5 incorrect distractors + GTFA testing note | Pass |
-| Model failure = image misinterpretation (not pure arithmetic) | Pass (by design; live confirmation pending parent Task) |
+| Model failure = image misinterpretation (not pure arithmetic) | Pass (confirmed: occlusion/dense-field undercounts → `1.3E7` / `1.2E7`) |
 | Dilution/volume task-specific (final CFU/mL not published as such) | Pass |
 | Knowledge cutoff OK (no post-2025-12-31 requirement) | Pass |
-| Both strongest vision models fail GTFA | **Pending parent Task runs** |
+| Both strongest vision models fail GTFA | **MET** (Grok 4.6 → `1.3E7`; Grok 4.7 → `1.2E7`; Claude unavailable) |
