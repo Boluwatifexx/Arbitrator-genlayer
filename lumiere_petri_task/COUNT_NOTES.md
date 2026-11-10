@@ -1,24 +1,31 @@
-# Expert count notes — sp14_img18 (*Listeria monocytogenes*)
+# Expert count notes — sp14_img18 (*Listeria monocytogenes*) — Strategy B
 
-## Ground-truth count
-**N = 172** discrete colony annotations (Makrai et al. expert bounding boxes in `annot_tab.csv`).
+## Strategy pivot
+Strategy A scored the **full** expert colony set (**N = 172**) → GTFA `172, 1.7E7`. Dual Grok retest **FAILED FAILURE_BAR**: models correctly excluded the mid-right bubble/foam cluster but bare-undercounted colonies (`140` / `157`). Strategy B scores the **isolated-only** subset so that full-plate-like answers are **wrong isolation/merge binding** (interpretive), not bare undercount of the same target set.
 
-Independent consistency checks:
-- Metadata sheet `images.xls` lists **172** CFUs for `sp14_img18.jpg`
-- CSV contains **172** rows for this `image_name`
-- Quadrant partition by colony centroid (image coords; UL/UR/LL/LR):
+**Why not Nbubble GTFA (directions 1/3):** the mid-right condensation cluster is real and has **0** expert CFU boxes, but discrete ring count is not clean for OPEN_ENDED GTFA — wall-sharing honeycomb cells, mixed micro-foam vs resolvable rings, descriptions ranging from “several” major rings to “dozens.” Isolation subset has annotation-backed integer GT.
 
-| Quadrant | Count |
-|----------|------:|
-| Upper-left (UL) | 35 |
-| Upper-right (UR) | 37 |
-| Lower-left (LL) | 55 |
-| Lower-right (LR) | 45 |
-| **Total** | **172** |
+## Full expert colony count (context; not Strategy B GTFA)
+**N_all = 172** discrete colony annotations (Makrai et al. expert bounding boxes in `annot_tab.csv`).
 
-Approx. touching pairs (bbox-circle proximity): on the order of **~50–95** depending on radius scale — dense contact structure, especially lower field.
-Colonies with centroid in outer 10% rim band: **~22**
+| Check | Value |
+|-------|------:|
+| `images.xls` CFUs for `sp14_img18.jpg` | 172 |
+| CSV rows for this `image_name` | 172 |
+| UL / UR / LL / LR (centroid quadrants) | 35 / 37 / 55 / 45 |
+
 **Bubble/foam cluster:** mid-right sector; **0** expert CFU boxes on the translucent ring objects (correct exclusion).
+
+## Isolated-only ground truth (Strategy B scored count)
+**Definition (matches prompt):** a colony is isolated iff its margin does not touch any other colony’s margin (no shared contact; no resolvable connecting waist). Members of touching pairs/chains/multi-lobed groups contribute **0**.
+
+**Expert proxy from annotations:** approximate each colony as a circle with diameter = mean bbox side (`r = 0.25 × (bbox_w + bbox_h)`); mark contact when distance between centers ≤ `r₁ + r₂` (circle margins touch).
+
+| Quantity | Value |
+|----------|------:|
+| Isolated colonies | **79** |
+| Colonies in ≥1 contact | **93** |
+| Total | **172** |
 
 ## Assay parameters (task-authored; not from paper CFU/mL)
 - Dilution plated: **10⁻⁴** → dilution factor **10⁴**
@@ -26,24 +33,25 @@ Colonies with centroid in outer 10% rim band: **~22**
 - Formula (solver-supplied; **not** pasted in the prompt): `CFU/mL = (N × 10⁴) / 0.1 = N × 10⁵`
 
 ## GTFA (structured)
-- Raw: `172 × 10⁵ = 1.72 × 10⁷`
-- **GTFA:** **`172, 1.7E7`** (integer colony count + two-sig-fig E-notation CFU/mL)
+- Raw: `79 × 10⁵ = 7.9 × 10⁶`
+- **GTFA:** **`79, 7.9E6`** (integer isolated colony count + two-sig-fig E-notation CFU/mL)
 
-Pass only if the model’s reported structured answer equals **`172, 1.7E7`** (CFU letter-case / `×10^` equivalents OK; colony count must be exactly **172**).
+Pass only if the model’s reported structured answer equals **`79, 7.9E6`** (CFU letter-case / `×10^` equivalents OK; isolated count must be exactly **79**).
 
-Illustrative CFU rounding for wrong counts (not pass criteria under structured GTFA):
+Illustrative wrong structured answers:
 
-| N | CFU/mL | Rounded CFU | Structured example |
-|--:|--------|-------------|--------------------|
-| 155 | 1.55E7 | 1.6E7 | `155, 1.6E7` (fail) |
-| 172 | 1.72E7 | 1.7E7 | **`172, 1.7E7` (GTFA)** |
-| 185 | 1.85E7 | 1.9E7 | `185, 1.9E7` (fail — bubble artifact bind) |
-| 205 | 2.05E7 | 2.1E7 | `205, 2.1E7` (fail — merge over-split) |
+| N used | Meaning | Structured example |
+|-------:|---------|--------------------|
+| 172 | Full set; failed isolation filter | `172, 1.7E7` (fail) |
+| 93 | Contact-involved only; inverted category | `93, 9.3E6` (fail) |
+| 140 | Strategy A Grok 4.6-class full-plate undercount | `140, 1.4E7` (fail — wrong binding) |
+| 157 | Strategy A Grok 4.7-class full-plate undercount | `157, 1.6E7` (fail — wrong binding) |
+| 79 | Correct isolated | **`79, 7.9E6` (GTFA)** |
 
 ## Expected visual failure modes (for model tests)
-1. **Artifact-as-colony (primary):** counting mid-right condensation bubble/foam cluster → N≈180–195 → e.g. `185, 1.9E7`
-2. **Wrong merge binding:** over-segmenting multi-lobed lower-field clusters → N≈200+ → e.g. `205, 2.1E7`
-3. **Rim-glare false positives:** specular pinpoints counted as rim CFU
-4. **Calc traps (distractors only):** omit `/0.1` → `172, 1.7E6`; use 10⁵ factor → `172, 1.7E8`
+1. **Wrong isolation binding (primary):** report full-plate-like N (`172` / `157` / `140`) instead of isolated **79**
+2. **Artifact-as-colony:** count mid-right bubble/foam (or rim glare) as additional isolated CFU
+3. **Inverted contact category:** report contact-involved **93** instead of isolated **79**
+4. **Calc traps (distractors only):** omit `/0.1` → `79, 7.9E5`; use 10⁵ factor → `79, 7.9E7`
 
-**FAILURE_BAR note:** Intended scored failures are (1)–(3) — image **misinterpretation** (wrong element identity / wrong merge binding). Bare undercount without those interpretive errors is **not** the failure claim (that was why Bordetella `sp06_img22` was rejected).
+**FAILURE_BAR note:** Intended scored failures are (1)–(3) — image **misinterpretation** (wrong isolation/merge binding / wrong element identity). Strategy A’s bare undercount of the full 172 set is **not** the failure claim.

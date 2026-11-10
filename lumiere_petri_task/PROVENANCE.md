@@ -27,12 +27,13 @@
 - File size after resize: ~853 KB (<5 MB)
 - Annotations occupy ≪40% of the image area (task image is the raw plate photo only)
 
-## Why this plate (Strategy A — interpretive traps)
-- **Condensation bubble/foam cluster** mid-right: translucent ring-like objects **not** present in the expert CFU annotations → primary **artifact-as-colony** overcount trap (Erysipelothrix-class identity error)
-- Multiple touching / multi-lobed contact clusters (esp. lower-left) → **wrong merge binding** / over-segmentation risk
+## Why this plate (Strategy B — interpretive traps)
+- **Strategy A failed FAILURE_BAR** on this same image: models correctly excluded mid-right condensation bubble/foam but bare-undercounted the full 172 set (`140` / `157`)
+- **Strategy B** scores **isolated-only** colonies (annotation-backed **N = 79**) so full-plate-like answers become **wrong isolation/merge binding**
+- Mid-right bubble/foam cluster remains an **artifact-as-colony** identity trap under exclusion rules; discrete bubble micro-count was too ambiguous for a clean `Nbubble` GTFA (honeycomb wall-sharing), so direction (2) isolated-only was chosen over (1)/(3)
+- Dense lower-field contact structure supports isolation/contact discrimination
 - Rim specular glare along the plastic wall → rim false-positive risk
-- Left-side soft shadow + right-side bright agar → contrast unevenness without changing object identity rules
-- Moderate-to-high colony load (N=172) still within pen+calculator plate-count range
+- Moderate colony load; isolated subset still within pen+calculator plate-count range
 
 ## Task-specific dilution note
 Published dataset metadata gives per-image colony counts but **does not** define the assay dilution/volume used in this Lumière prompt. Dilution (10⁻⁴) and plated volume (0.1 mL) are task-authored so the final CFU/mL GTFA is not a value published as such in the source metadata.

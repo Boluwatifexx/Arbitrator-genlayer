@@ -1,16 +1,14 @@
-# Lumière Petri plate task (Listeria sp14_img18)
-
-End-to-end Project Lumière microbiology task package (**Strategy A** redesign after Bordetella FAILURE_BAR_NOT_MET).
+# Lumière Petri plate task (Listeria sp14_img18) — Strategy B
 
 | File | Role |
 |------|------|
-| `TASK.md` | Full paste-ready package |
-| `plate_image.jpg` | Platform image (~2000 px long edge) |
+| `TASK.md` | Full paste-ready Lumière package (prompt, GTFA, golden, distractors, QC) |
+| `MODEL_TEST_PROTOCOL.md` | Exact closed-book prompt + dual Grok retest protocol |
+| `COUNT_NOTES.md` | Expert isolated count (79) + Strategy A failure evidence |
+| `PROVENANCE.md` | Dataset license, DOI, processing |
+| `plate_image.jpg` | Task image (resized JPEG) |
 | `sp14_img18_listeria_plate.jpg` | Same task image, named copy |
-| `COUNT_NOTES.md` | Quadrant counts + structured GTFA |
-| `PROVENANCE.md` | CC BY 4.0 source verification |
-| `MODEL_TEST_PROTOCOL.md` | Closed-book dual-model test protocol for parent |
 
-**GTFA:** `172, 1.7E7` (N=172 colonies; 100 µL of 10⁻⁴ dilution → 1.7E7 CFU/mL).
-
-**Failure mode:** artifact-as-colony (bubble/foam cluster) and/or wrong merge binding — not bare undercount.
+**Assay:** Petri Dishes & Culture Plates  
+**GTFA (Strategy B):** `79, 7.9E6` (isolated colonies only + CFU/mL)  
+**Failure mode:** wrong isolation/merge binding and/or artifact-as-colony — not bare undercount of the full 172 set (Strategy A FAILED FAILURE_BAR).
