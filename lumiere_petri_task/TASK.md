@@ -123,13 +123,13 @@ A distinctive non-colony feature occupies a mid-right / lower-right sector of th
 
 ## 9. Model failure justification (image misinterpretation)
 
-Failure is expected from **wrong biological/visual category identity and/or wrong contact binding**, not bare undercount of the Strategy A full-colony target:
+Observed dual-model failures are **wrong biological/visual category identity and wrong isolation/merge binding**, not bare undercount of a correctly defined full-colony set:
 
-1. **Artifact identity / bubble binding (primary, directions 1+3):** models mis-state the mid-right foam ring count — e.g. `Nbubble=0` (bubbles misclassified as colonies or ignored as a countable artifact class), `Nbubble=1` (whole patch bound as one object), or inflated counts that fold in abutting opaque colonies / micro-grain. Wrong **element identity** or wrong **foam-field binding**.
-2. **Wrong isolation / merge binding:** models report a full-plate-like second field (`172`, `157`, `140`) instead of isolated **79** — including contacting pairs/chains (wrong binding to the isolation criterion). Strategy A answers fail this field by construction.
-3. **Artifact-as-isolated-colony:** bubble/foam objects counted into the isolated colony field.
+1. **Artifact identity / bubble binding (primary):** both testers miscounted the mid-right foam-field translucent-ring cluster — Grok 4.7 `Nbubble=7` and Grok 4.6 `Nbubble=9` (≠ **11**). Wrong **foam-field identity** / resolvable-ring binding (not rim glare alone; not ignoring the class entirely).
+2. **Wrong isolation / merge binding (co-primary):** both testers reported isolated tallies far from **79** — Grok 4.7 `106` and Grok 4.6 `117` — wrong contact/merge binding under the isolation criterion (not Strategy A bare undercount of a correctly recognized full 172 set).
+3. **Not FAILURE_BAR_NOT_MET:** neither model returned a correct Nbubble with only a bare undercount of an otherwise correctly defined colony set; primary errors are identity + isolation binding.
 
-Strategy A’s FAILURE_BAR_NOT_MET pattern (correct bubble *exclusion* + bare undercount of all colonies) is no longer the scored claim: the GTFA now requires an explicit artifact tally and an isolated-only colony field.
+Strategy A’s FAILURE_BAR_NOT_MET pattern (correct bubble *exclusion* + bare undercount of all colonies) is no longer the scored claim: the GTFA requires an explicit artifact tally and an isolated-only colony field, and both strongest vision models failed those interpretive fields.
 
 Arithmetic mistakes retained **only as distractors** (e.g. `11, 79, 7.9E5`).
 
@@ -145,9 +145,9 @@ Knowledge required is standard plate-count microbiology (pre-2025). No post-2025
 |---------|--------|---------|
 | 0 | Bordetella `sp06_img22` (GTFA `144, 1.4E7`) | FAILURE_BAR_NOT_MET: bare undercount |
 | 1 | **Strategy A** Listeria `sp14_img18`, GTFA `172, 1.7E7` | **FAILED FAILURE_BAR:** Grok 4.6 `140, 1.4E7`; Grok 4.7 `157, 1.6E7` — correct bubble exclusion, bare undercount |
-| 2 | **Strategy B** two-category + isolated-only, GTFA `11, 79, 7.9E6` | Package rewritten; parent retest — see `MODEL_TEST_PROTOCOL.md` |
+| 2 | **Strategy B** two-category + isolated-only, GTFA `11, 79, 7.9E6` | **FAILURE_BAR MET** — both models fail via foam-field identity + isolation/merge binding |
 
-### Results table (Strategy A — FAILED BAR; do not ship)
+### Results table (Strategy A — FAILED BAR; superseded; do not ship)
 
 | Tester | Answer | Result |
 |--------|--------|--------|
@@ -156,14 +156,12 @@ Knowledge required is standard plate-count microbiology (pre-2025). No post-2025
 
 ### Results table (Strategy B; GTFA = `11, 79, 7.9E6`)
 
-| Tester | Answer | Result |
-|--------|--------|--------|
-| Grok 4.7 (`grok-4.7-xhigh`) | *pending parent closed-book run* | — |
-| Grok 4.6 (`cursor-grok-4.6-xhigh`) | *pending parent closed-book run* | — |
+| Tester | Answer | Interpretive error | Result |
+|--------|--------|--------------------|--------|
+| Grok 4.7 (`grok-4.7-xhigh`) | `7, 106, 1.1E7` | Wrong Nbubble (7≠11) artifact identity; wrong isolation binding (106≠79) | ✗ fail |
+| Grok 4.6 (`cursor-grok-4.6-xhigh`) | `9, 117, 1.2E7` | Wrong Nbubble (9≠11); wrong isolation binding (117≠79) | ✗ fail |
 
-**Bar status:** **PENDING Strategy B retest** — nested agent cannot spawn Task; parent runs `MODEL_TEST_PROTOCOL.md`.
-
-**Desired failures:** wrong `Nbubble` (0 / 1 / inflated) and/or second field near `172`/`157`/`140` (wrong isolation binding). Prefer documenting the model’s stated identity/binding reason.
+**Bar status:** **FAILURE_BAR MET** — primary errors are foam-field identity miscount + isolation/merge binding — not bare undercount of a correctly defined full-colony set.
 
 ---
 
@@ -184,5 +182,5 @@ Knowledge required is standard plate-count microbiology (pre-2025). No post-2025
 | No explicit MC; implied space ≥10 | Pass |
 | Image description ≥200 words; no GTFA spoiler | Pass |
 | Exactly 5 incorrect distractors + testing note | Pass |
-| Model failure = image misinterpretation (artifact identity / isolation binding) | Pass (intended; confirm on retest) |
-| Both strongest vision models fail via interpretive error | **Pending parent Strategy B retest** |
+| Model failure = image misinterpretation (artifact identity / isolation binding) | Pass (confirmed dual-model) |
+| Both strongest vision models fail via interpretive error | **Pass — FAILURE_BAR MET** |
