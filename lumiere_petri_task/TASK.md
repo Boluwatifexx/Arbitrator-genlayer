@@ -31,16 +31,16 @@ Strategy C restores an Erysipelothrix-style **viable-count** endpoint: colony en
 ## 2. Prompt (≤2000 characters) — PASTE THIS
 
 ```
-Image 1 shows a blood-agar spread plate of Listeria monocytogenes after incubation. To prepare it, 100 µL of a $10^{-4}$ dilution of a broth culture was spread over the entire plate. Using standard viable plate-count practice, determine the viable count of the undiluted broth culture in CFU/mL. Apply the conventional countable-range criterion used when reporting a spread-plate count. Resolve contiguous colonies by distinct centers; do not treat non-colony plate artifacts as CFU. Report the answer in E-notation to two significant figures, without units (for example, 3.4E7). If the plate is outside the countable range, report Uncountable.
+Image 1 shows a blood-agar spread plate of Listeria monocytogenes after incubation. To prepare it, 100 µL of a $10^{-4}$ dilution of a broth culture was spread over the entire plate. Using standard viable plate-count practice, determine the viable count of the undiluted broth culture in CFU/mL. Apply the conventional countable-range criterion used when reporting a spread-plate count. Count every colony whose center lies on or inside the agar surface. Include colonies that are only partially visible at the dish rim or cut by the image boundary if the colony center is still on the agar; exclude any colony whose center lies outside the agar or outside the visible frame. Resolve contiguous colonies by distinct centers; count as one CFU only when fully fused into a single center. Do not treat non-colony plate artifacts as CFU. Report the answer in E-notation to two significant figures, without units (for example, 3.4E7). If the plate is outside the countable range, report Uncountable.
 ```
 
-**Character count:** ~555 (under 2000).
+**Character count:** ~900 (under 2000).
 
 **Design notes:**
 - Domain knowledge load-bearing: what counts as a CFU on blood agar, plate-count formula, 30–300 countable-range rule (not pasted as numbers—solver supplies the conventional criterion).
 - Neutral-label test: replacing microbiological CFU/colony/countable-range concepts with “count pale dots and multiply” breaks the intended task.
 - Counting feeds **biological** endpoints (range judgment + viable count)—count is not the scored answer.
-- No geometric bubble/ring tutorial; no bubble field in the answer.
+- Counting rules now cover: center-on-agar criterion, partial/edge-cut visibility, contiguous/fused colonies, artifact exclusion — without a geometric bubble tutorial.
 - No pasted CFU algebra; no colony color/appearance spoon-feeding.
 
 ---
@@ -69,7 +69,7 @@ Nearby counts that still round to `1.7E7` under two-sig-fig E-notation: treat ca
 ## 5. Golden solution
 
 1. **Recognize the assay.** Blood-agar spread plate of *L. monocytogenes*; 100 µL of a 10⁻⁴ dilution was plated. The undiluted viable count is obtained from a standard plate-count calculation after enumerating CFU on the plate.
-2. **Enumerate CFU.** Count each colony-forming unit whose center lies on the agar, including rim-adjacent colonies with centers on the agar. Resolve contiguous/multi-lobed contacts by distinct centers (separate CFU when centers remain resolvable; one CFU when fully fused). Exclude non-colony artifacts (condensation/foam, rim reflections, scratches, debris)—recognition uses microbiological plate-reading practice, not a geometric ring checklist in the prompt.
+2. **Enumerate CFU.** Count each colony-forming unit whose center lies on or inside the agar. Include partially visible colonies at the dish rim or cut by the image boundary when the center remains on the agar; exclude colonies whose center is outside the agar or outside the visible frame. Resolve contiguous/multi-lobed contacts by distinct centers (separate CFU when centers remain resolvable; one CFU when fully fused). Exclude non-colony artifacts (condensation/foam, rim reflections, scratches, debris)—recognition uses microbiological plate-reading practice, not a geometric ring checklist in the prompt.
 3. **Expert total.** Quadrant context from annotations: UL 35 + UR 37 + LL 55 + LR 45 → **N = 172**.
 4. **Countable-range judgment.** Conventional spread-plate countable range is 30–300 colonies. 172 is within range → the plate may be used to report a viable count (not `Uncountable`).
 5. **Viable count.** Volume plated = 100 µL = 0.1 mL; dilution factor of the plated suspension = 10⁻⁴.  
@@ -150,7 +150,7 @@ The model failed to produce a completed image-based plate-count solution and the
 |------|------------|
 | DOMAIN_KNOWLEDGE_FLOOR | No geometric ring tutorial; solver supplies CFU recognition, plate-count math, countable-range criterion |
 | COUNTING_IS_THE_TASK | Scored answer is viable count / Uncountable — not a raw tally endpoint |
-| COUNTING_RULES_UNDEFINED | Distinct-center rule + exclude non-colony artifacts (without neutral ring SOP) |
+| COUNTING_RULES_UNDEFINED | Center-on-agar rule; partial/edge-cut inclusion; distinct-center vs fused; exclude non-colony artifacts (without neutral ring SOP) |
 | OPEN_ENDED | Short unambiguous GTFA; golden solution holds the trace |
 | ANSWER_OR_SOLUTION_LEAK | Image description has no counts / no GTFA |
 | FAILURE_BAR | Prefer wrong answers that show artifact↔colony misbinding; blanks only if Retry fails |
