@@ -1,38 +1,33 @@
-# Vision model test protocol — COMPLETED
+# Vision model test protocol — PARENT HANDOFF (REQUIRED)
 
 ## Status
-Closed-book dual-model vision tests are **done**. Dual-model failure bar **MET**. No further tester runs required unless the image/prompt/GTFA are revised.
+**QC revise complete** (structured GTFA `144, 1.4E7`). Nested Cursor Task spawn is **unavailable** to this worker (subagent depth limit / Task tool not exposed). **Parent must run both closed-book vision tests** and record results back into `TASK.md` §10.
 
-## Model substitutions
-Claude Opus / Sonnet / Fable were **unavailable** (weekly usage). Dual-model bar was met with the strongest available Grok models:
-- Grok 4.6 (`cursor-grok-4.6-xhigh`)
-- Grok 4.7 (`grok-4.7-xhigh`)
+## Models to run (prefer in order)
+1. `grok-4.7-xhigh`
+2. `cursor-grok-4.6-xhigh`
 
-## Results (both FAILED — desired)
+(Claude Opus / Sonnet / Fable if available on the account; otherwise the two Grok models above.)
 
-| Tester | Colony count | Answer | vs GTFA `1.4E7` |
-|--------|--------------|--------|------------------|
-| Grok 4.6 (`cursor-grok-4.6-xhigh`) | 132 | 1.3E7 | ✗ fail |
-| Grok 4.7 (`grok-4.7-xhigh`) | 121 | 1.2E7 | ✗ fail |
+## How to run
+Use Cursor Task tool with:
+- `file_attachments: [/workspace/lumiere_petri_task/plate_image.jpg]`
+  (alternate: `/opt/cursor/artifacts/sp06_img22_bordetella_plate.jpg`)
+- `run_in_background: false`
+- Give **ONLY** the prompt below + ask for the structured final answer
+- Closed-book: **no** GTFA / golden / distractors; **no** web/CSV/repo answers; **no** auto-counting scripts
 
-**Failure modes:** undercounts (occlusion / dense-field miss) → `1.3E7` and `1.2E7`; Grok 4.7 matches distractor pattern `1.2E7`; Grok 4.6 near undercount.
+## Shared closed-book instructions for each tester
 
-**Expert GTFA** remains N=144 → `1.4E7` (tolerance 135–144). Image / prompt / GTFA **unchanged** (no revise).
+```
+Closed-book vision test. Reason about the attached plate image only (mental zoom/crop allowed).
 
-## Historical blocker (resolved via parent runs)
-Earlier: `CallDynamicTool(namespace=cursor, toolName=Task, …)` returned
-**`Subagent child workflow depth limit of 1 reached`** for nested subagent Testers. Parent agent completed the closed-book runs above.
-
-## Shared closed-book instructions (for re-test only)
-Attach: `/workspace/lumiere_petri_task/plate_image.jpg`  
-(or `/opt/cursor/artifacts/sp06_img22_bordetella_plate.jpg`)
-
-Rules for the tester:
-- Closed-book: reason about the attached image only (mental zoom/crop allowed).
-- Do **not** run automated colony-counting code.
-- Do **not** web-search the paper, Figshare annotations, or CSV counts.
-- Do **not** ask for the GTFA or look for task answer keys in the repo.
-- Return **only**: (1) brief colony count used, (2) final answer in required E-notation.
+Rules:
+- Do NOT run automated colony-counting code or scripts.
+- Do NOT web-search the paper, Figshare annotations, or CSV counts.
+- Do NOT ask for the GTFA or look for task answer keys in the repo.
+- Return ONLY: (1) one brief sentence naming the integer colony count you used, (2) the structured final answer in the required format.
+```
 
 ## Prompt text (task prompt only — no GTFA / golden / distractors)
 
@@ -42,18 +37,20 @@ You are analyzing a digital photograph of a blood agar culture plate from a quan
 A Bordetella bronchiseptica suspension was serially diluted, and 100 µL of the 10⁻⁴ dilution was spread evenly across the agar surface and incubated until discrete colonies were visible.
 
 Using only the image:
-1. Identify and count every bacterial colony on the plate (raised pale colonies on the dark agar). Do not count rim reflections, condensation, ink/marker writing visible through the agar, scratches, or other non-colony artifacts.
-2. Compute the concentration in the original undiluted suspension as CFU/mL using:
-   CFU/mL = (colony count × dilution factor) / volume plated in mL
-   where dilution factor = 10⁴ and volume plated = 0.1 mL.
-3. Report the result rounded to two significant figures in E-notation (example format: 3.2E6).
+1. Apply standard viable plate-count colony recognition for this blood-agar culture. Count every colony whose center lies on or inside the agar surface (include rim-adjacent colonies if the colony center is on the agar). When colonies touch or appear merged, count them as separate CFU if two or more distinct colony centers or margins are resolvable; count as one CFU only when they are fully fused into a single center. Exclude non-colony artifacts (writing, optical reflections, bubbles, scratches).
+2. From your colony count, compute the viable count (CFU/mL) of the original undiluted culture. Round the CFU/mL result to two significant figures in E-notation.
 
-Final answer: the CFU/mL value only (e.g., 2.5E7).
-
-Also state, in one short line, the integer colony count you used before the calculation.
+Final answer format (exactly): <integer colony count>, <CFU/mL in E-notation>
+Example style (not the answer): 280, 2.8E7
 ```
 
-## Pass/fail criteria (reference)
-- **GTFA:** `1.4E7`
-- **FAIL (desired):** any other answer, including `1.2E7`, `1.3E7`, `1.6E7`, `1.4E6`, `1.4E8`, etc.
-- **PASS (must revise task):** answer equals `1.4E7` or equivalent, or a count in 135–144 that the model then correctly rounds to `1.4E7`.
+## Pass/fail criteria
+- **GTFA:** `144, 1.4E7`
+- **FAIL (desired):** any other structured answer, including prior undercounts such as `132, 1.3E7` or `121, 1.2E7`, overcounts such as `160, 1.6E7` / `170, 1.7E7`, or calc traps `144, 1.4E6` / `144, 1.4E8`.
+- **PASS (must harden / revise):** answer equals `144, 1.4E7` (or accepted CFU notation equivalent with count exactly 144).
+
+## Prior evidence (CFU-only prompt; superseded)
+Under the old value-only GTFA `1.4E7`, Grok 4.6 counted **132** → `1.3E7` and Grok 4.7 counted **121** → `1.2E7`. Those undercounts would already fail the new structured GTFA, but parent must still re-test under the **revised** prompt (counting rules + no formula + structured answer).
+
+## After runs
+Update `TASK.md` §10 results table with colony count, structured answer, and pass/fail for each model. Dual-model failure bar is **MET** only when both ≠ `144, 1.4E7`.

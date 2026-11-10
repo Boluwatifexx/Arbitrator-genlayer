@@ -6,8 +6,8 @@ End-to-end Project Lumière microbiology task package.
 |------|------|
 | `TASK.md` | Full paste-ready package |
 | `plate_image.jpg` | Platform image (~2000 px long edge) |
-| `COUNT_NOTES.md` | Quadrant counts + CFU tolerance |
+| `COUNT_NOTES.md` | Quadrant counts + structured GTFA |
 | `PROVENANCE.md` | CC BY 4.0 source verification |
-| `MODEL_TEST_PROTOCOL.md` | Opus/Sonnet Task prompts (parent must run) |
+| `MODEL_TEST_PROTOCOL.md` | Closed-book dual-model test protocol (parent run) |
 
-**GTFA:** `1.4E7` CFU/mL (N=144; 100 µL of 10⁻⁴ dilution).
+**GTFA:** `144, 1.4E7` (N=144 colonies; 100 µL of 10⁻⁴ dilution → 1.4E7 CFU/mL).
