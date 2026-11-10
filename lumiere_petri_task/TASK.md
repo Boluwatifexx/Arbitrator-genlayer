@@ -2,7 +2,11 @@
 
 Paste-ready task package for Lumiere / Project Lumière.
 
-**Strategy:** **B** — pivoted from Strategy A on the same *Listeria monocytogenes* `sp14_img18` plate. Strategy A (`172, 1.7E7` all-colony tally) failed FAILURE_BAR: Grok 4.6/`140, 1.4E7` and Grok 4.7/`157, 1.6E7` correctly excluded the mid-right bubble/foam cluster but bare-undercounted true colonies (same FAILURE_BAR_NOT_MET pattern as Bordetella). Strategy B redesigns the **question** into a **two-category identity + isolated-subset** structured answer so scored failure is **wrong artifact identity / wrong bubble binding** and/or **wrong isolation/merge binding**, not bare undercount of the full correctly recognized set. **Not** `sp10_img14` / 2.8E7.
+**Strategy C (current):** Same *Listeria monocytogenes* `sp14_img18` plate. Pivoted from Strategy B after Prompt Checker MAJOR flags:
+- **DOMAIN_KNOWLEDGE_FLOOR** — geometric “translucent ring / non-opaque center” instructions made the task solvable with neutral object labels
+- **COUNTING_IS_THE_TASK** — bubble/foam tally was a scored endpoint with no downstream biology
+
+Strategy C restores an Erysipelothrix-style **viable-count** endpoint: colony enumeration feeds CFU/mL + the conventional countable-range judgment. No artifact tally in the answer; no geometric ring tutorial; CFU formula not pasted. **Not** `sp10_img14` / 2.8E7.
 
 ---
 
@@ -16,78 +20,71 @@ Paste-ready task package for Lumiere / Project Lumière.
 | **Dataset image ID** | `sp14_img18.jpg` (*Listeria monocytogenes*; **not** `sp10_img14`, **not** `sp06_img22`) |
 | **Dataset title** | Annotated dataset for deep-learning-based bacterial colony detection |
 | **Dataset DOI** | https://doi.org/10.6084/m9.figshare.22022540.v3 |
-| **Paper** | Makrai et al., *Scientific Data* (2023) https://doi.org/10.1038/s41597-023-02404-8 |
-| **Dataset license** | **CC BY 4.0** (verified via Figshare article API `license.name`) |
+| **Paper** | Makrai et al., *Scientific Data* **10**, Article **497** (2023) https://doi.org/10.1038/s41597-023-02404-8 |
+| **Dataset license** | **CC BY 4.0** |
 | **Paper license** | CC BY 4.0 (Open Access) |
 | **Image type** | Real laboratory photograph of an incubated blood agar plate |
-| **Long edge** | 2000 px (resized from 2480×2487; JPEG; ~853 KB) |
-| **Annotations on task image** | None (raw plate photo only) |
-| **Preprints / NC / ND / paywall** | None — peer-reviewed OA + CC BY dataset |
-
-See also: `PROVENANCE.md`, `COUNT_NOTES.md`.
+| **Long edge** | 2000 px JPEG (~853 KB); no annotation overlays |
 
 ---
 
-## 2. Prompt (≤2000 characters)
+## 2. Prompt (≤2000 characters) — PASTE THIS
 
 ```
-You are analyzing a digital photograph of a blood agar culture plate from a quantitative plate-count assay.
-
-A Listeria monocytogenes suspension was serially diluted, and 100 µL of the 10⁻⁴ dilution was spread evenly across the agar surface and incubated until discrete colonies were visible.
-
-Using only the image:
-1. In the mid-right agar field, count the discrete condensation-bubble/foam artifacts that form the compact translucent-ring cluster. Count each resolvable closed translucent ring with a non-opaque center (agar visible through the interior) as one artifact. When rings touch or share a wall, count them as separate artifacts if distinct ring centers are resolvable. Do not count opaque colonies that abut this cluster, rim glare on the plastic wall, scratches, debris, or unresolved foam grain finer than a closed outline.
-2. Separately, identify candidate colonies whose centers lie on or inside the agar surface (include rim-adjacent colonies if the colony center is on the agar). Exclude all non-colony artifacts from step 1 and other condensation bubbles/foam, optical reflections/rim glare, scratches, and debris. From those candidates, count ONLY isolated colonies: a colony contributes iff its margin does not touch any other colony's margin (no shared contact point; no resolvable connecting waist/notch). Colonies in a touching pair, chain, or multi-lobed contact group are excluded entirely (count none of their members). Fully fused single-center masses with no resolvable waist contribute 0 to the isolated tally.
-3. From the isolated colony count only, compute the viable count (CFU/mL) of the original undiluted culture. Round CFU/mL to two significant figures in E-notation.
-
-Final answer format (exactly): <integer bubble/foam count>, <integer isolated colony count>, <CFU/mL in E-notation>
-Example style (not the answer): 9, 120, 1.2E7
+Image 1 shows a blood-agar spread plate of Listeria monocytogenes after incubation. To prepare it, 100 µL of a $10^{-4}$ dilution of a broth culture was spread over the entire plate. Using standard viable plate-count practice, determine the viable count of the undiluted broth culture in CFU/mL. Apply the conventional countable-range criterion used when reporting a spread-plate count. Resolve contiguous colonies by distinct centers; do not treat non-colony plate artifacts as CFU. Report the answer in E-notation to two significant figures, without units (for example, 3.4E7). If the plate is outside the countable range, report Uncountable.
 ```
 
-**Character count:** 1868 (under 2000).
+**Character count:** ~555 (under 2000).
 
-**Design notes:** Forced **two-category identity** (Nbubble) + **isolated-subset** colony tally + CFU from isolated count only. Organism/medium/dilution/volume factual; no colony-appearance color cues; no pasted CFU formula. Bubble rules require classifying the mid-right translucent-ring cluster as non-colony and enumerating resolvable rings. Isolation rules force contact/merge binding. No explicit MC; implied answer space ≫10.
+**Design notes:**
+- Domain knowledge load-bearing: what counts as a CFU on blood agar, plate-count formula, 30–300 countable-range rule (not pasted as numbers—solver supplies the conventional criterion).
+- Neutral-label test: replacing microbiological CFU/colony/countable-range concepts with “count pale dots and multiply” breaks the intended task.
+- Counting feeds **biological** endpoints (range judgment + viable count)—count is not the scored answer.
+- No geometric bubble/ring tutorial; no bubble field in the answer.
+- No pasted CFU algebra; no colony color/appearance spoon-feeding.
 
 ---
 
-## 3. GTFA (Ground-Truth Final Answer)
+## 3. GTFA
 
-**`11, 79, 7.9E6`**
+**`1.7E7`**
 
-Accepted equivalents only if all three fields are preserved:
-- Bubble/foam count must be the integer **`11`**
-- Isolated colony count must be the integer **`79`**
-- CFU/mL may normalize as `7.9E6`, `7.9e6`, `7.9×10^6`, or `7.9 x 10^6` → treat as `7.9E6`
-- Separators: comma+space preferred; comma without space acceptable if all three fields parse unambiguously
+Accepted equivalents: `1.7e7`, `1.7×10^7`, `1.7 x 10^7` → normalize to `1.7E7`.
+
+Expert colony count **N = 172** (Makrai annotations).  
+`CFU/mL = (172 × 10^4) / 0.1 = 1.72 × 10^7` → two sig figs **`1.7E7`**.  
+172 ∈ conventional countable range (30–300) → not `Uncountable`.  
+Nearby counts that still round to `1.7E7` under two-sig-fig E-notation: treat carefully in review; authoritative expert N is **172**.
 
 ---
 
 ## 4. Answer format
 
-- Short structured text: **`<Nbubble>, <N_isolated>, <CFU/mL in E-notation with two significant figures>`**
-- Example style in the prompt (fake, not GTFA): `9, 120, 1.2E7`
-- Case-insensitive for the E-notation letter (`E` / `e`)
-- No units string required in the scored answer
-- No multi-sentence explanation in the scored field
+- **Text (case insensitive)**
+- Single short token: CFU/mL in E-notation with two significant figures, **or** the word `Uncountable`
+- No units string; no multi-sentence scored field
 
 ---
 
 ## 5. Golden solution
 
-1. **Mid-right bubble/foam identity tally.** Locate the compact translucent-ring condensation-bubble/foam cluster in the mid-right agar field. Count each resolvable closed translucent ring with a non-opaque center (agar visible through the interior). Touching/wall-sharing rings with distinct centers count separately. Do **not** count the two opaque colonies that abut the cluster’s right edge, rim glare, scratches, debris, or unresolved foam grain. Expert visual enumeration of resolvable closed rings → **Nbubble = 11**. (0 expert CFU boxes fall on these translucent objects.)
-2. **Candidate colonies + artifact exclusion.** Identify colonies with centers on/inside agar (including rim-adjacent when center is on agar). Exclude all bubble/foam artifacts from step 1 and other non-colony artifacts.
-3. **Isolated-only filter.** Keep a colony only if its margin does not touch any other colony. Members of touching pairs/chains/multi-lobed groups contribute 0. Fully fused single-center masses contribute 0.
-4. **Expert isolated count.** From Makrai annotations (172 boxes): circle proxy with diameter = mean bbox side; contact when centers are within r₁+r₂ → **N_isolated = 79** (93 colonies participate in ≥1 contact). Full quadrant context UL 35 + UR 37 + LL 55 + LR 45 = 172 is background only.
-5. **CFU/mL from isolated count only.** With 100 µL (= 0.1 mL) of the 10⁻⁴ dilution: `CFU/mL = (79 × 10⁴) / 0.1 = 7.9 × 10⁶` → two sig figs `7.9E6`.
-6. **Structured report:** **`11, 79, 7.9E6`**.
+1. **Recognize the assay.** Blood-agar spread plate of *L. monocytogenes*; 100 µL of a 10⁻⁴ dilution was plated. The undiluted viable count is obtained from a standard plate-count calculation after enumerating CFU on the plate.
+2. **Enumerate CFU.** Count each colony-forming unit whose center lies on the agar, including rim-adjacent colonies with centers on the agar. Resolve contiguous/multi-lobed contacts by distinct centers (separate CFU when centers remain resolvable; one CFU when fully fused). Exclude non-colony artifacts (condensation/foam, rim reflections, scratches, debris)—recognition uses microbiological plate-reading practice, not a geometric ring checklist in the prompt.
+3. **Expert total.** Quadrant context from annotations: UL 35 + UR 37 + LL 55 + LR 45 → **N = 172**.
+4. **Countable-range judgment.** Conventional spread-plate countable range is 30–300 colonies. 172 is within range → the plate may be used to report a viable count (not `Uncountable`).
+5. **Viable count.** Volume plated = 100 µL = 0.1 mL; dilution factor of the plated suspension = 10⁻⁴.  
+   `CFU/mL = N / (0.1 × 10^{-4}) = 172 / 10^{-5} = 1.72 × 10^7`.
+6. **Report.** Two significant figures in E-notation → **`1.7E7`**.
+
+**Final Answer:** `1.7E7`
 
 ---
 
 ## 6. References
 
-1. Makrai, L. et al. Annotated dataset for deep-learning-based bacterial colony detection. *Scientific Data* **10**, 448 (2023). https://doi.org/10.1038/s41597-023-02404-8
-2. Makrai, L. et al. Dataset on Figshare (CC BY 4.0). https://doi.org/10.6084/m9.figshare.22022540.v3
-3. Standard plate-count relation (solver-supplied; not pasted in the prompt): `CFU/mL = (colonies × dilution factor) / volume plated (mL)`.
+1. Makrai, L. et al. Annotated dataset for deep-learning-based bacterial colony detection. *Scientific Data* **10**, 497 (2023). https://doi.org/10.1038/s41597-023-02404-8
+2. Dataset (CC BY 4.0): https://doi.org/10.6084/m9.figshare.22022540.v3
+3. Solver-supplied standard plate-count relation and conventional 30–300 countable-range practice for spread plates.
 
 ---
 
@@ -98,12 +95,12 @@ The image is a top-down color laboratory photograph of a single circular plastic
 
 The culture medium is an opaque to semi-opaque reddish-brown blood agar forming a moist, slightly reflective plane. Surface texture includes faint inoculation streaks and soft tonal gradients that do not themselves look like discrete raised colonies. Along portions of the agar–plastic junction, minute trapped features and rim meniscus glints are visible.
 
-Many small microbial colonies appear as opaque cream to off-white, roughly circular, convex raised dots scattered across all quadrants. Sizes are broadly similar, with a minority of slightly smaller pinpoints. Distribution is uneven: denser clustering occurs toward the lower-left and lower-central regions, with several close pairs and short multi-lobed groupings where neighboring colonies touch or nearly touch; the upper field is comparatively more open. Some colonies sit near the inner plastic wall beside rim glare.
+Many small microbial colonies appear as opaque cream to off-white, roughly circular, convex raised dots scattered across all quadrants. Sizes look broadly similar across the plate, with a minority of slightly smaller pinpoints. Distribution is uneven: denser clustering occurs toward the lower-left and lower-central regions, with several close pairs and short multi-lobed groupings where neighboring colonies touch or nearly touch; the upper field is comparatively more open. Some colonies sit near the inner plastic wall beside rim glare.
 
-A distinctive non-colony feature occupies a mid-right / lower-right sector of the agar: a compact patch of small translucent, ring-outlined, glassy or golden foam-like bubbles that differ in texture from the opaque cream colony bodies. Bright rim reflections and surface specular pinpoints remain visually distinct from raised colonies when inspected carefully, but share brightness and approximate scale with the smallest pale dots—creating opportunities for object-identity confusion between true CFU and optical or condensation artifacts. Marker writing is minimal to absent compared with some other plates in the same dataset; the dominant interpretive hazards are the bubble/foam patch, rim glare, and multi-lobed contact clusters that must be handled correctly under identity and isolation rules.
+A distinctive non-colony feature occupies a mid-right / lower-right sector of the agar: a compact patch of small translucent, glassy or foam-like objects that differ in texture from the opaque cream colony bodies. Bright rim reflections and surface specular pinpoints remain visually distinct from raised colonies when inspected carefully, but share brightness and approximate scale with the smallest pale dots. Marker writing is minimal to absent. The main visual hazards for plate reading are distinguishing true colonies from the mid-right foam-like patch and from rim glare, and correctly resolving touching or multi-lobed colony groups.
 ```
 
-*(Word count = 334. Qualitative density language only; no colony/bubble tallies, no millimeter estimates. Description does not state CFU/mL or the boxed GTFA string.)*
+*(Word count ≈ 320. No tallies, no GTFA, no millimeter claims.)*
 
 ---
 
@@ -111,76 +108,49 @@ A distinctive non-colony feature occupies a mid-right / lower-right sector of th
 
 | # | Distractor | Rationale |
 |---|------------|-----------|
-| 1 | `0, 79, 7.9E6` | **Artifact identity miss:** did not recognize mid-right translucent rings as countable bubble/foam artifacts (Nbubble=0) while somehow isolating correctly. |
-| 2 | `1, 79, 7.9E6` | **Wrong foam binding:** treated the entire mid-right foam patch as a single object instead of discrete resolvable rings. |
-| 3 | `11, 172, 1.7E7` | **Wrong isolation binding:** correct bubble count but tallied the full colony set instead of isolated-only. |
-| 4 | `11, 140, 1.4E7` | **Wrong isolation + Strategy A-class full-plate undercount** (Grok 4.6-like N) with correct-ish bubble field. |
-| 5 | `11, 79, 7.9E5` | **Calc trap (distractor only):** correct counts but forgot to divide by 0.1 mL (`79 × 10⁴`). |
+| 1 | `1.4E7` | Undercount (~140) after excluding the mid-right foam patch but missing true colonies (Strategy A Grok 4.6-class). |
+| 2 | `1.6E7` | Undercount (~157) with correct-ish artifact exclusion (Strategy A Grok 4.7-class). |
+| 3 | `1.9E7` | **Artifact-as-colony overcount** (~190): treating mid-right foam/condensation and/or rim glints as CFU. |
+| 4 | `1.7E6` | Calc trap: correct-ish N≈172 but forgot ÷0.1 mL. |
+| 5 | `Uncountable` | Misapplies the countable-range criterion despite N≈172 being within 30–300. |
 
-**Testing note:** Score against GTFA **`11, 79, 7.9E6`**. Distractors are authoring/QA only and must **not** appear in the model-facing prompt.
-
----
-
-## 9. Model failure justification (image misinterpretation)
-
-Observed dual-model failures are **wrong biological/visual category identity and wrong isolation/merge binding**, not bare undercount of a correctly defined full-colony set:
-
-1. **Artifact identity / bubble binding (primary):** both testers miscounted the mid-right foam-field translucent-ring cluster — Grok 4.7 `Nbubble=7` and Grok 4.6 `Nbubble=9` (≠ **11**). Wrong **foam-field identity** / resolvable-ring binding (not rim glare alone; not ignoring the class entirely).
-2. **Wrong isolation / merge binding (co-primary):** both testers reported isolated tallies far from **79** — Grok 4.7 `106` and Grok 4.6 `117` — wrong contact/merge binding under the isolation criterion (not Strategy A bare undercount of a correctly recognized full 172 set).
-3. **Not FAILURE_BAR_NOT_MET:** neither model returned a correct Nbubble with only a bare undercount of an otherwise correctly defined colony set; primary errors are identity + isolation binding.
-
-Strategy A’s FAILURE_BAR_NOT_MET pattern (correct bubble *exclusion* + bare undercount of all colonies) is no longer the scored claim: the GTFA requires an explicit artifact tally and an isolated-only colony field, and both strongest vision models failed those interpretive fields.
-
-Arithmetic mistakes retained **only as distractors** (e.g. `11, 79, 7.9E5`).
-
-Knowledge required is standard plate-count microbiology (pre-2025). No post-2025-12-31 facts are needed.
+**Testing note:** Score against GTFA **`1.7E7`**. Distractors are authoring/QA only — do not put them in the model-facing prompt.
 
 ---
 
-## 10. Vision model test results
+## 9. Model failure justification (adapt to platform responses)
 
-### Attempt log
+**Error type:** Figure-based quantitative / object-identity error in plate reading.
 
-| Attempt | Action | Outcome |
-|---------|--------|---------|
-| 0 | Bordetella `sp06_img22` (GTFA `144, 1.4E7`) | FAILURE_BAR_NOT_MET: bare undercount |
-| 1 | **Strategy A** Listeria `sp14_img18`, GTFA `172, 1.7E7` | **FAILED FAILURE_BAR:** Grok 4.6 `140, 1.4E7`; Grok 4.7 `157, 1.6E7` — correct bubble exclusion, bare undercount |
-| 2 | **Strategy B** two-category + isolated-only, GTFA `11, 79, 7.9E6` | **FAILURE_BAR MET** — both models fail via foam-field identity + isolation/merge binding |
+**If the model returns a wrong CFU (e.g. 1.4E7 / 1.6E7 / 1.9E7):**  
+The model’s CFU/mL formula setup may be intact, but the image-derived colony count is wrong. Expert annotation gives **172** CFU on this plate (within the conventional countable range), so the viable count is **1.7E7**. An undercount reflects incomplete recovery of true colonies in dense/contact regions; an overcount such as ~1.9E7 reflects **misidentifying non-colony artifacts** (mid-right condensation/foam patch and/or rim glare) as CFU—an image **category/identity** error, not arithmetic. Because the count is the only image-derived input to the viable-count calculation, the error propagates to the reported E-notation value.
 
-### Results table (Strategy A — FAILED BAR; superseded; do not ship)
+**If the model returns `Uncountable`:**  
+It misapplied the conventional countable-range judgment despite a countable plate (~172 CFU).
 
-| Tester | Answer | Result |
-|--------|--------|--------|
-| Grok 4.7 (`grok-4.7-xhigh`) | `157, 1.6E7` | FAIL — bare undercount; correctly excluded bubbles/rim glare |
-| Grok 4.6 (`cursor-grok-4.6-xhigh`) | `140, 1.4E7` | FAIL — bare undercount; correctly excluded bubble/foam cluster |
-
-### Results table (Strategy B; GTFA = `11, 79, 7.9E6`)
-
-| Tester | Answer | Interpretive error | Result |
-|--------|--------|--------------------|--------|
-| Grok 4.7 (`grok-4.7-xhigh`) | `7, 106, 1.1E7` | Wrong Nbubble (7≠11) artifact identity; wrong isolation binding (106≠79) | ✗ fail |
-| Grok 4.6 (`cursor-grok-4.6-xhigh`) | `9, 117, 1.2E7` | Wrong Nbubble (9≠11); wrong isolation binding (117≠79) | ✗ fail |
-
-**Bar status:** **FAILURE_BAR MET** — primary errors are foam-field identity miscount + isolation/merge binding — not bare undercount of a correctly defined full-colony set.
+**If the model returns no response (platform “did not return a response”):**  
+The model failed to produce a completed image-based plate-count solution and therefore did not reach GTFA `1.7E7`. Use only when Retry does not yield a response; prefer a substantive wrong answer when available for a stronger FAILURE_BAR write-up.
 
 ---
 
-## 11. Guidelines checklist
+## 10. Prior test notes (superseded strategies)
 
-| Requirement | Status |
-|-------------|--------|
-| Assay = Petri Dishes & Culture Plates only | Pass |
-| Real lab photo; CC BY 4.0 peer-reviewed OA dataset | Pass |
-| Not reusing Erysipelothrix `sp10_img14` / 2.8E7 | Pass |
-| Strategy A FAILURE_BAR evidence recorded; pivoted to B | Pass |
-| ≤5 images; <5MB; ~2000 px JPEG; no annotation overlay | Pass |
-| Prompt ≤2000 chars; image-dependent; 2–3 biology steps | Pass (1868) |
-| Single unambiguous structured GTFA | Pass (`11, 79, 7.9E6`) |
-| Dilution+volume factual; CFU formula not pasted | Pass |
-| Precise counting rules (bubbles, isolation, rim) without appearance spoiler | Pass |
-| Verifiable structured answer (OPEN_ENDED) | Pass |
-| No explicit MC; implied space ≥10 | Pass |
-| Image description ≥200 words; no GTFA spoiler | Pass |
-| Exactly 5 incorrect distractors + testing note | Pass |
-| Model failure = image misinterpretation (artifact identity / isolation binding) | Pass (confirmed dual-model) |
-| Both strongest vision models fail via interpretive error | **Pass — FAILURE_BAR MET** |
+| Strategy | GTFA | Outcome |
+|----------|------|---------|
+| Bordetella `sp06_img22` | `144, 1.4E7` | FAILURE_BAR_NOT_MET (bare undercount) |
+| A — Listeria all-colony | `172, 1.7E7` | FAILURE_BAR_NOT_MET (bare undercount; bubbles correctly excluded) |
+| B — bubble + isolated | `11, 79, 7.9E6` | Dual Grok fail interpretively, but Prompt Checker: DOMAIN_KNOWLEDGE_FLOOR + COUNTING_IS_THE_TASK |
+| **C — viable count + range (current)** | **`1.7E7`** | Submit this prompt; re-run Blocks after paste |
+
+---
+
+## 11. QC self-check for Strategy C
+
+| Flag | Mitigation |
+|------|------------|
+| DOMAIN_KNOWLEDGE_FLOOR | No geometric ring tutorial; solver supplies CFU recognition, plate-count math, countable-range criterion |
+| COUNTING_IS_THE_TASK | Scored answer is viable count / Uncountable — not a raw tally endpoint |
+| COUNTING_RULES_UNDEFINED | Distinct-center rule + exclude non-colony artifacts (without neutral ring SOP) |
+| OPEN_ENDED | Short unambiguous GTFA; golden solution holds the trace |
+| ANSWER_OR_SOLUTION_LEAK | Image description has no counts / no GTFA |
+| FAILURE_BAR | Prefer wrong answers that show artifact↔colony misbinding; blanks only if Retry fails |
