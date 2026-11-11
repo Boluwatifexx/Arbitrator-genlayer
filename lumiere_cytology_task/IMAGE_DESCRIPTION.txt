@@ -1,69 +1,63 @@
-The image is a rectangular color brightfield photomicrograph of a cellular smear on a pale, slightly filmy background. No scale bar, printed text, arrows, or digital overlays appear on the image. Across the field are many large cells with visible cytoplasm and nuclei, plus far more numerous tiny dark purple-to-black rounded or irregular objects that are much smaller than the large-cell nuclei and are scattered singly and in loose clumps through the background. Occasional small pale orange-tan disks also appear in the background.
+The image is a rectangular color brightfield photomicrograph of a cellular smear on a pale, slightly streaky blue-gray background. No scale bar, printed text, arrows, or digital overlays appear on the image. Across the field are many large cells with visible cytoplasm and nuclei, plus far more numerous tiny dark purple-to-black rounded or irregular objects that are much smaller than the large-cell nuclei and are scattered singly, in chains, and in loose clumps through the background.
 
-Large cells are described below by approximate location (percent of image width from the left, percent of image height from the top), referring to the nucleus position. Cytoplasm color, nuclear size/shape/chromatin appearance, nuclear contour, nucleoli if visible, perinuclear clearing/halos, multinucleation, and overlaps are noted from what is visible.
+Large cells are described below by approximate location (percent of image width from the left, percent of image height from the top), referring to the nucleus position. Cytoplasm color, nuclear size/shape/texture, nuclear contour, perinuclear pale zones, multinucleation, and overlaps are noted from what is visible.
 
-Near the extreme upper-left corner (about 2% across, 1% down): a large cell with abundant cytoplasm and an enlarged nucleus relative to the smallest dense nuclei elsewhere; the cell is cut by the top and left edges.
+Near the top edge, right of center (about 78% across, 1% down): a cell with blue-green cytoplasm and a large dark oval nucleus cut by the upper margin; the nuclear center remains in frame.
 
-Near the upper-right margin (about 83% across, 6% down): a cell with relatively scant cytoplasm and a large, dark, coarsely textured oval nucleus that fills much of the cell profile.
+Near the top edge farther right (about 81% across, 3% down): a neighboring cell with blue-green cytoplasm and a large dark nucleus close to the upper border.
 
-Near the upper-right margin farther right (about 91% across, 6% down): a large cell with more abundant cytoplasm and an enlarged, dark oval nucleus; neighboring cytoplasm from adjacent large cells overlaps this region.
+Upper-left region (about 7% across, 5% down): a cell with blue-green cytoplasm, a large dark oval nucleus, and a relatively limited cytoplasmic rim compared with nuclear size.
 
-Upper-right cluster, upper portion (about 69% across, 16% down): a large cell with abundant orange-pink cytoplasm and an enlarged oval nucleus that is darker than the tiniest pinpoint nuclei in other orange-pink cells nearby.
+Upper-right (about 84% across, 7% down): a cell with blue-green to mixed cytoplasm and a large dark nucleus near other large cells.
 
-Upper-right cluster (about 73% across, 21% down): a large cell with abundant orange-pink cytoplasm, an enlarged dark nucleus, and a pale zone around the nucleus within the cytoplasm.
+Upper-right (about 85% across, 16% down): a large cell with more abundant pale cytoplasm and a comparatively small dense dark nucleus.
 
-Upper-right / mid-right cluster (about 62% across, 25% down): a cell with blue-green cytoplasm, a large dark oval nucleus with coarse texture, and a thin cytoplasmic rim.
+Upper-right (about 91% across, 19% down): a large cell with abundant pale cytoplasm and a small dense dark nucleus; cytoplasm overlaps nearby large cells.
 
-Upper-right cluster (about 75% across, 25% down): within one continuous orange-pink cytoplasmic body, two dark nuclei lie close together without a clear separating cell border between them (multinucleated appearance).
+Mid-field (about 59% across, 50% down): a large cell with abundant orange-pink to mixed cytoplasm and an enlarged dark nucleus relative to the smallest pinpoint nuclei elsewhere.
 
-Upper-right cluster immediately adjacent (about 73% across, 26% down): a separate large orange-pink cell with one enlarged dark nucleus and overlapping borders with the multinucleated cytoplasmic body beside it.
+Mid-left (about 27% across, 57% down): a cell with blue-green cytoplasm and a large dark nucleus with coarse texture; neighboring cells overlap this region.
 
-Mid-left to center, upper part of a diagonal blue-green group (about 26% across, 29% down): a cell with blue-green cytoplasm, scant rim relative to nuclear size, and a large dark oval nucleus with coarse granular texture and a somewhat irregular contour.
+Mid-left (about 15% across, 58% down): a large cell with abundant cytoplasm and an enlarged dark nucleus that is smaller in nuclear share of the cell than the scant-rim blue-green cells nearby.
 
-Same diagonal group (about 37% across, 34% down): a cell with blue-green cytoplasm and a large dark oval nucleus with coarse chromatin texture; cytoplasm overlaps neighbors.
+Mid-right (about 80% across, 59% down): a cell with blue-green cytoplasm and a large dark nucleus among a crowded group.
 
-Same diagonal group (about 33% across, 37% down): a touching/overlapping neighbor with blue-green cytoplasm and a separate large dark nucleus that remains resolvable as its own nuclear center.
+Center (about 54% across, 61% down): a cell with mixed cytoplasm and a very large, dark, irregularly contoured nucleus that stands out against neighboring nuclei.
 
-Same diagonal group (about 37% across, 44% down): a cell with blue-green cytoplasm, a large dark oval nucleus, and an irregular nuclear outline; cytoplasmic borders merge visually with adjacent cells.
+Mid-left (about 25% across, 63% down): a cell with blue-green cytoplasm, a large dark nucleus, and overlapping borders with adjacent large cells.
 
-Same diagonal group, lower left of the pair at the tail (about 40% across, 49% down): a smaller blue-green cell with a dark nucleus that is still large relative to the cytoplasmic rim, with an irregular nuclear contour.
+Mid-right (about 74% across, 64% down): a cell with blue-green cytoplasm and a large dark oval nucleus in a crowded zone.
 
-Same diagonal group, lower right of that pair (about 45% across, 48% down): a rounded blue-green cell with a dark nucleus and a thin cytoplasmic rim; the two nuclei in this pair remain separately resolvable.
+Center-right of mid cluster (about 57% across, 65% down): a cell with mixed-to-orange cytoplasm and a large dark nucleus packed against neighbors.
 
-Mid-right (about 75% across, 42% down): a large cell with abundant orange-pink to mixed-tone cytoplasm and a very small, dense, dark, pinpoint nucleus.
+Mid-right (about 77% across, 65% down): a cell with blue-green cytoplasm and a large dark nucleus; cytoplasmic borders merge visually with adjacent cells.
 
-Lower mid-left (about 19% across, 62% down): a large cell with abundant orange-pink cytoplasm, an enlarged dark nucleus, and a pale perinuclear zone with denser cytoplasm at the periphery.
+Center (about 54% across, 69% down): a cell with mixed cytoplasm and a large dark nucleus in a heaped cluster.
 
-Lower center-left (about 27% across, 66% down): a large cell with abundant orange-pink cytoplasm, a sharply outlined pale perinuclear cavity, denser peripheral cytoplasm, and an enlarged dark nucleus.
+Mid-right lower (about 80% across, 72% down): a large cell with abundant cytoplasm and an enlarged dark nucleus that is less dominant in the cell outline than the scant-rim blue-green cells above.
 
-Lower center (about 43% across, 65% down): an elongated blue-green cell with a large dark oval nucleus oriented roughly horizontally and a high nuclear share of the cell outline.
+Center-lower (about 56% across, 73% down): a cell in the heaped mid-lower cluster with a large dark nucleus and overlapping orange-pink to mixed cytoplasm.
 
-Lower center-right (about 57% across, 64% down): a blue-green cell with elongated cytoplasm and a markedly enlarged, very dark, coarsely textured nucleus occupying much of the cell width.
+Lower mid-right (about 67% across, 73% down): a cell with blue-green cytoplasm and a large dark nucleus near the dense right-sided group.
 
-Mid-right lower (about 84% across, 58% down): a large cell with abundant pale orange-pink cytoplasm and a very small dense dark nucleus.
+Lower center (about 61% across, 74% down): a large cell with more abundant orange-pink cytoplasm and an enlarged dark nucleus.
 
-Far right mid-height (about 89% across, 64% down): a large cell with abundant cytoplasm and a small dense dark nucleus; overlaps nearby large cells.
+Lower-left (about 27% across, 78% down): a large cell with abundant cytoplasm and an enlarged dark nucleus among overlapping neighbors.
 
-Lower-left group (about 26% across, 76% down): a large cell with abundant pink-orange cytoplasm and an enlarged, moderately dark oval nucleus.
+Lower center (about 60% across, 78% down): a large cell with abundant orange-pink cytoplasm and an enlarged dark nucleus; borders touch nearby large cells.
 
-Lower-left group (about 22% across, 82% down): an adjacent large cell with abundant pink-orange cytoplasm and an enlarged oval dark nucleus; cytoplasmic borders touch/overlap the cell above.
+Lower center (about 63% across, 87% down): a large cell with abundant orange-pink cytoplasm and an enlarged dark nucleus in a looser lower group.
 
-Lower mid (about 38% across, 80% down): a large cell with mixed blue-green to pink cytoplasm and an enlarged dark nucleus among overlapping neighbors.
+Lower mid-left (about 40% across, 89% down): a large cell with abundant pale cytoplasm and a small dense dark nucleus.
 
-Lower mid-right (about 61% across, 80% down): a blue-green cell with a dark oval nucleus and limited cytoplasmic rim relative to nuclear size.
+Lower-left (about 33% across, 90% down): a large cell with abundant cytoplasm and an enlarged dark nucleus.
 
-Lower-right cluster (about 90% across, 80% down): a large orange-pink cell with an enlarged dark, somewhat smudged-looking nucleus; overlaps neighbors.
+Far lower-left (about 12% across, 90% down): a large cell with abundant cytoplasm and an enlarged dark nucleus near the left side.
 
-Lower-right cluster (about 90% across, 89% down): a large orange-pink cell with an enlarged dark nucleus and a pale zone near the nucleus.
+Lower center-right (about 66% across, 94% down): a large cell with abundant orange-pink cytoplasm and an enlarged dark nucleus near the bottom.
 
-Lower-right (about 80% across, 73% down): a large cell with abundant cytoplasm and a small dense dark nucleus.
+Bottom-right (about 80% across, 95% down): a cell with blue-green cytoplasm, a large dark nucleus, and a limited cytoplasmic rim relative to nuclear size; near the bottom edge.
 
-Bottom-right (about 68% across, 94% down): a cell with orange-pink to mixed cytoplasm, an enlarged dark nucleus, and a relatively limited cytoplasmic rim compared with the large orange-pink sheets above it.
+Bottom-right (about 83% across, 96% down): an adjacent cell with blue-green cytoplasm and a large dark nucleus close to the lower border.
 
-Bottom edge (about 45% across, 97% down): a large cell cut by the bottom border, with visible cytoplasm and an enlarged dark nucleus whose center remains in frame.
-
-Bottom edge (about 53% across, 99% down): another large cell along the bottom margin with cytoplasm and a dark nucleus near the edge.
-
-Bottom-left corner region (about 4% across, 95% down): a large cell with abundant orange-pink cytoplasm and a very small dense dark nucleus, partly near the frame edge.
-
-Throughout, many additional tiny dark purple-black objects remain in the background between these large cells; they lack the broad cytoplasmic sheets of the large cells. In several regions, large-cell cytoplasm is stacked or overlapping so that more than one dark nuclear center is visible within crowded areas of the field.
+Throughout, tiny dark purple-black objects remain dense in the background and along mucus-like streaks. In the mid and lower-right regions, large-cell cytoplasm is frequently stacked or overlapping so that more than one dark nuclear center is visible within crowded areas of the field.
