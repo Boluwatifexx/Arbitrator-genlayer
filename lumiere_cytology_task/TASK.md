@@ -31,16 +31,16 @@ Paste-ready task package. **Assay type: Cytology only.**
 ## 2. Prompt (paste)
 
 ```
-Image 1 is a field from a conventional cervical Pap smear stained with the Papanicolaou method. Restrict analysis to squamous epithelial cells. Using Bethesda System interpretive criteria, identify every cell in the field that meets criteria for HSIL and every cell that meets criteria for LSIL. Compute the ratio (number of HSIL cells) / (number of LSIL cells) and report it as a single reduced fraction in lowest terms (for example, 3/5). Count a cell only if its nucleus center lies inside the visible frame; include cells cut by the image boundary when the nucleus center remains inside the frame; exclude inflammatory cells and non-epithelial debris from both tallies. Do not use external look-up of this image's published annotations.
+Image 1 is a field from a conventional cervical Pap smear stained with the Papanicolaou method. Restrict analysis to squamous epithelial cells. Using Bethesda System interpretive criteria, identify every cell in the field that meets criteria for HSIL and every cell that meets criteria for LSIL. Compute the ratio (number of HSIL cells) / (number of LSIL cells) and report it as a single reduced fraction in lowest terms (for example, 3/5). When epithelial cells touch, overlap, or appear clustered, count them as separate cells if two or more distinct nuclei are resolvable; count as one cell only when multiple nuclei lie within a single continuous cytoplasmic body without separable cell borders (a multinucleated cell). For a mononucleated cell, include it only if its nucleus center lies inside the visible frame (including cells cut by the image boundary under that same rule). For a multinucleated cell, include it if and only if at least one of its nucleus centers lies inside the visible frame; otherwise exclude it. Exclude inflammatory cells and non-epithelial debris from both tallies. Do not use external look-up of this image's published annotations.
 ```
 
-**Character count:** ~740 (≤2000).
+**Character count:** ~1180 (≤2000).
 
 **Design notes:**
 - **DOMAIN_KNOWLEDGE_FLOOR:** Solver must supply Bethesda HSIL vs LSIL morphology; prompt does not paste nuclear-size/halo/N:C criteria. Neutral “count large dark blobs / count pale blobs” does not recover the expert labels.
 - **COUNTING_IS_THE_TASK:** Raw tallies are not the scored answer; they feed a **lesion-composition ratio** used in cytology field interpretation.
 - **Implied MC:** Answer space is many possible reduced fractions (≫10).
-- **Counting rules:** nucleus-center-in-frame; partial/edge-cut handled; exclude inflam/debris.
+- **Counting rules:** overlap/cluster separation by distinct nuclei; multinucleated = one cell; mono- vs multi-nucleated frame-boundary criteria; exclude inflam/debris.
 - No pasted formula beyond the ratio definition; no annotation boxes on the image.
 
 ---
@@ -68,7 +68,7 @@ Accepted equivalents only if mathematically identical after reduction (e.g. not 
 1. **Recognize the preparation.** Conventional Pap smear, Papanicolaou stain; squamous epithelial cells are the diagnostic objects.
 2. **Apply Bethesda LSIL criteria** (solver-supplied): squamous cells with viral/koilocytic or low-grade nuclear change and relatively abundant cytoplasm — expert labels mark **17** such cells in this field.
 3. **Apply Bethesda HSIL criteria** (solver-supplied): squamous cells with high-grade nuclear enlargement/hyperchromasia and increased N:C relative to LSIL/NILM — expert labels mark **10** such cells, concentrated especially in the mid-left / central cyanophilic clusters with enlarged dark nuclei.
-4. **Exclude** neutrophils/inflammatory dots, debris, and NILM squamous cells from both tallies. Include boundary-cut epithelial cells only if the nucleus center is inside the frame.
+4. **Separate clusters:** overlapping/touching epithelial cells with resolvable distinct nuclei count separately; a true multinucleated cell (multiple nuclei in one cytoplasmic body) counts once. **Exclude** neutrophils/inflammatory dots, debris, and NILM squamous cells from both tallies. **Frame rule:** mononucleated — nucleus center in frame; multinucleated — ≥1 nucleus center in frame.
 5. **Ratio:** HSIL/LSIL = 10/17, already reduced (gcd=1).
 6. **Report:** `10/17`.
 
