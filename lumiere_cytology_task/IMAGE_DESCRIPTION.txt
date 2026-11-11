@@ -1,63 +1,65 @@
 The image is a rectangular color brightfield photomicrograph of a cellular smear on a pale, slightly streaky blue-gray background. No scale bar, printed text, arrows, or digital overlays appear on the image. Across the field are many large cells with visible cytoplasm and nuclei, plus far more numerous tiny dark purple-to-black rounded or irregular objects that are much smaller than the large-cell nuclei and are scattered singly, in chains, and in loose clumps through the background.
 
-Large cells are described below by approximate location (percent of image width from the left, percent of image height from the top), referring to the nucleus position. Cytoplasm color, nuclear size/shape/texture, nuclear contour, perinuclear pale zones, multinucleation, and overlaps are noted from what is visible.
+Large cells are described below by approximate location (percent of image width from the left, percent of image height from the top), referring to the nucleus position. For each large cell: cytoplasm color; how much of the cell outline the nucleus occupies (nuclear-to-cytoplasmic proportion as seen); nuclear membrane contour; chromatin texture; presence or absence of a pale perinuclear clearing/halo; and whether neighboring nuclei are in separate overlapping cells or in one continuous cytoplasmic body.
 
-Near the top edge, right of center (about 78% across, 1% down): a cell with blue-green cytoplasm and a large dark oval nucleus cut by the upper margin; the nuclear center remains in frame.
+Near the top edge, right of center (about 78% across, 1% down): blue-green cytoplasm; nucleus occupies most of the visible cell profile (very high nuclear share); nuclear membrane mildly irregular; chromatin dark and coarsely granular; no clear perinuclear halo; cell is cut by the top edge; appears as a separate mononucleated cell from its right-hand neighbor.
 
-Near the top edge farther right (about 81% across, 3% down): a neighboring cell with blue-green cytoplasm and a large dark nucleus close to the upper border.
+Near the top edge farther right (about 81% across, 3% down): blue-green cytoplasm; nucleus occupies most of the cell outline; nuclear membrane somewhat irregular; chromatin dark/coarse; no halo; separate mononucleated cell overlapping slightly with the cell at 78%,1% but with a resolvable separate nuclear center and separable cytoplasmic border.
 
-Upper-left region (about 7% across, 5% down): a cell with blue-green cytoplasm, a large dark oval nucleus, and a relatively limited cytoplasmic rim compared with nuclear size.
+Upper-left (about 7% across, 5% down): blue-green cytoplasm with a thin rim; nucleus occupies the large majority of the cell; nuclear membrane irregular; chromatin dark and coarsely textured; no halo; isolated mononucleated cell.
 
-Upper-right (about 84% across, 7% down): a cell with blue-green to mixed cytoplasm and a large dark nucleus near other large cells.
+Upper-right (about 84% across, 7% down): blue-green to mixed cytoplasm; nucleus large relative to the rim (high nuclear share); nuclear membrane irregular; chromatin coarse/dark; no definite halo; separate mononucleated cell near other upper-right large cells.
 
-Upper-right (about 85% across, 16% down): a large cell with more abundant pale cytoplasm and a comparatively small dense dark nucleus.
+Upper-right (about 85% across, 16% down): abundant pale cytoplasm; nucleus is a small dense dark pinpoint (very low nuclear share of the cell); nuclear membrane smooth; chromatin compact/dense; no halo; separate mononucleated cell.
 
-Upper-right (about 91% across, 19% down): a large cell with abundant pale cytoplasm and a small dense dark nucleus; cytoplasm overlaps nearby large cells.
+Upper-right (about 91% across, 19% down): abundant pale cytoplasm; small dense dark nucleus (very low nuclear share); smooth compact nucleus; no halo; separate mononucleated cell with overlapping cytoplasm against the cell at 85%,16% but distinct nuclear centers and separable borders.
 
-Mid-field (about 59% across, 50% down): a large cell with abundant orange-pink to mixed cytoplasm and an enlarged dark nucleus relative to the smallest pinpoint nuclei elsewhere.
+Mid-field (about 59% across, 50% down): abundant orange-pink to mixed cytoplasm; enlarged nucleus occupying a minority of the cell area (low-to-moderate nuclear share); nuclear membrane mildly irregular; chromatin darker than the pinpoint nuclei above; faint pale zone near the nucleus without a sharp thick rim; separate mononucleated cell.
 
-Mid-left (about 27% across, 57% down): a cell with blue-green cytoplasm and a large dark nucleus with coarse texture; neighboring cells overlap this region.
+Mid-left (about 27% across, 57% down): blue-green cytoplasm; nucleus occupies most of the cell (high nuclear share); nuclear membrane irregular; chromatin coarse/dark; no halo; separate mononucleated cell.
 
-Mid-left (about 15% across, 58% down): a large cell with abundant cytoplasm and an enlarged dark nucleus that is smaller in nuclear share of the cell than the scant-rim blue-green cells nearby.
+Mid-left (about 15% across, 58% down): abundant cytoplasm; enlarged nucleus with moderate nuclear share (clearly less dominant than the scant-rim blue-green cells); nuclear membrane mildly irregular; chromatin dark but not filling the whole cell; subtle pale perinuclear zone; separate mononucleated cell.
 
-Mid-right (about 80% across, 59% down): a cell with blue-green cytoplasm and a large dark nucleus among a crowded group.
+Mid-right crowded group (about 80% across, 59% down): blue-green cytoplasm; high nuclear share; irregular nuclear membrane; coarse dark chromatin; no halo; this nucleus belongs to a separate overlapping cell relative to the nuclei at about 74%,64% and 77%,65% (distinct nuclear centers with visible intervening cytoplasmic folds/borders rather than one undivided cytoplasmic body).
 
-Center (about 54% across, 61% down): a cell with mixed cytoplasm and a very large, dark, irregularly contoured nucleus that stands out against neighboring nuclei.
+Center heaped cluster (about 54% across, 61% down): mixed cytoplasm; very large dark nucleus with high nuclear share; nuclear membrane markedly irregular; chromatin coarse and uneven; no clear halo; separate mononucleated cell packed against neighbors.
 
-Mid-left (about 25% across, 63% down): a cell with blue-green cytoplasm, a large dark nucleus, and overlapping borders with adjacent large cells.
+Mid-left (about 25% across, 63% down): blue-green cytoplasm; high nuclear share; irregular nuclear contour; coarse chromatin; no halo; separate mononucleated cell overlapping the cell at 27%,57% with two resolvable nuclear centers and separable borders (not a single multinucleated body).
 
-Mid-right (about 74% across, 64% down): a cell with blue-green cytoplasm and a large dark oval nucleus in a crowded zone.
+Mid-right (about 74% across, 64% down): blue-green cytoplasm; high nuclear share; irregular membrane; coarse chromatin; no halo; separate overlapping cell in the mid-right crowd (distinct from 80%,59% and 77%,65%).
 
-Center-right of mid cluster (about 57% across, 65% down): a cell with mixed-to-orange cytoplasm and a large dark nucleus packed against neighbors.
+Center-right of mid cluster (about 57% across, 65% down): mixed-to-orange cytoplasm; large dark nucleus with high nuclear share; irregular contour; coarse chromatin; no halo; separate mononucleated cell in the heaped center.
 
-Mid-right (about 77% across, 65% down): a cell with blue-green cytoplasm and a large dark nucleus; cytoplasmic borders merge visually with adjacent cells.
+Mid-right (about 77% across, 65% down): blue-green cytoplasm; high nuclear share; irregular membrane; coarse chromatin; no halo; separate overlapping cell with distinct nuclear center beside 74%,64% (two/three separate cells in this mid-right overlap stack, not one multinucleated cell).
 
-Center (about 54% across, 69% down): a cell with mixed cytoplasm and a large dark nucleus in a heaped cluster.
+Center (about 54% across, 69% down): mixed cytoplasm; large dark nucleus; high nuclear share; irregular membrane; coarse chromatin; no halo; separate mononucleated cell in the heaped mid-lower group.
 
-Mid-right lower (about 80% across, 72% down): a large cell with abundant cytoplasm and an enlarged dark nucleus that is less dominant in the cell outline than the scant-rim blue-green cells above.
+Mid-right lower (about 80% across, 72% down): more abundant cytoplasm than the scant-rim cells above; enlarged nucleus with moderate nuclear share; membrane mildly irregular; chromatin dark; pale perinuclear zone present; separate mononucleated cell.
 
-Center-lower (about 56% across, 73% down): a cell in the heaped mid-lower cluster with a large dark nucleus and overlapping orange-pink to mixed cytoplasm.
+Center-lower (about 56% across, 73% down): mixed-to-orange cytoplasm in the heaped cluster; large dark nucleus with high nuclear share; irregular contour; coarse chromatin; no sharp halo; separate mononucleated cell with overlapping cytoplasm against the cells at 54%,61% and 57%,65% (distinct nuclear centers, separable as overlapping cells).
 
-Lower mid-right (about 67% across, 73% down): a cell with blue-green cytoplasm and a large dark nucleus near the dense right-sided group.
+Lower mid-right (about 67% across, 73% down): blue-green cytoplasm; large dark nucleus with high nuclear share; irregular membrane; coarse chromatin; no halo; separate mononucleated cell at the margin of the orange-pink lower sheet.
 
-Lower center (about 61% across, 74% down): a large cell with more abundant orange-pink cytoplasm and an enlarged dark nucleus.
+Lower center (about 61% across, 74% down): abundant orange-pink cytoplasm; enlarged nucleus with low-to-moderate nuclear share; membrane mildly irregular; chromatin dark; pale perinuclear clearing present; separate mononucleated cell.
 
-Lower-left (about 27% across, 78% down): a large cell with abundant cytoplasm and an enlarged dark nucleus among overlapping neighbors.
+Lower-left (about 27% across, 78% down): abundant cytoplasm; enlarged nucleus with moderate nuclear share; mildly irregular membrane; dark chromatin; no sharp halo; separate mononucleated cell.
 
-Lower center (about 60% across, 78% down): a large cell with abundant orange-pink cytoplasm and an enlarged dark nucleus; borders touch nearby large cells.
+Lower center (about 60% across, 78% down): abundant orange-pink cytoplasm; enlarged nucleus with low-to-moderate nuclear share; mildly irregular membrane; dark chromatin; pale perinuclear zone; separate mononucleated cell touching the cell at 61%,74% (two separate overlapping cells with two nuclear centers, not multinucleated).
 
-Lower center (about 63% across, 87% down): a large cell with abundant orange-pink cytoplasm and an enlarged dark nucleus in a looser lower group.
+Lower center (about 63% across, 87% down): abundant orange-pink cytoplasm; enlarged nucleus with low-to-moderate nuclear share; mildly irregular membrane; dark chromatin; pale perinuclear clearing; separate mononucleated cell in the lower orange-pink group.
 
-Lower mid-left (about 40% across, 89% down): a large cell with abundant pale cytoplasm and a small dense dark nucleus.
+Lower mid-left (about 40% across, 89% down): abundant pale cytoplasm; small dense dark nucleus (very low nuclear share); smooth compact chromatin; no halo; separate mononucleated cell.
 
-Lower-left (about 33% across, 90% down): a large cell with abundant cytoplasm and an enlarged dark nucleus.
+Lower-left (about 33% across, 90% down): abundant cytoplasm; enlarged nucleus with moderate nuclear share; mildly irregular membrane; dark chromatin; no sharp halo; separate mononucleated cell.
 
-Far lower-left (about 12% across, 90% down): a large cell with abundant cytoplasm and an enlarged dark nucleus near the left side.
+Far lower-left (about 12% across, 90% down): blue-green to mixed cytoplasm; enlarged central nucleus with moderate-to-high nuclear share; membrane somewhat irregular; coarse/dark chromatin; no clear halo; separate mononucleated cell.
 
-Lower center-right (about 66% across, 94% down): a large cell with abundant orange-pink cytoplasm and an enlarged dark nucleus near the bottom.
+Lower center-right (about 66% across, 94% down): abundant orange-pink cytoplasm; enlarged nucleus with low-to-moderate nuclear share; mildly irregular membrane; dark chromatin; pale perinuclear zone; separate mononucleated cell near the bottom of the orange-pink sheet.
 
-Bottom-right (about 80% across, 95% down): a cell with blue-green cytoplasm, a large dark nucleus, and a limited cytoplasmic rim relative to nuclear size; near the bottom edge.
+Bottom-right (about 80% across, 95% down): blue-green cytoplasm with limited rim; nucleus occupies most of the cell (very high nuclear share); irregular nuclear membrane; coarse dark chromatin; no halo; separate mononucleated cell near the bottom edge.
 
-Bottom-right (about 83% across, 96% down): an adjacent cell with blue-green cytoplasm and a large dark nucleus close to the lower border.
+Bottom-right (about 83% across, 96% down): blue-green cytoplasm; high nuclear share; irregular membrane; coarse chromatin; no halo; separate mononucleated cell adjacent to 80%,95% with two distinct nuclear centers and separable borders (overlapping pair, not one multinucleated cell).
 
-Throughout, tiny dark purple-black objects remain dense in the background and along mucus-like streaks. In the mid and lower-right regions, large-cell cytoplasm is frequently stacked or overlapping so that more than one dark nuclear center is visible within crowded areas of the field.
+Crowded-cluster summary (explicit): the mid-right stack around 74–80% across and 58–66% down consists of multiple overlapping separate large cells (each with its own resolvable nuclear center and separable cytoplasmic borders), not a single multinucleated cytoplasmic body. The central heaped group around 53–58% across and 60–75% down likewise comprises separate overlapping mononucleated large cells with distinct nuclear centers. The lower-central orange-pink sheet around 60–66% across and 74–95% down is a set of separate overlapping mononucleated large cells with distinct nuclear centers. No large-cell object in these three crowded regions is described here as multiple nuclei inside one undivided continuous cytoplasmic body without borders.
+
+Throughout, tiny dark purple-black objects remain dense in the background and along mucus-like streaks between the large cells.
