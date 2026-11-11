@@ -66,4 +66,4 @@ Bottom edge (about 53% across, 99% down): another large cell along the bottom ma
 
 Bottom-left corner region (about 4% across, 95% down): a large cell with abundant orange-pink cytoplasm and a very small dense dark nucleus, partly near the frame edge.
 
-Throughout, many additional tiny dark purple-black objects remain in the background between these large cells; they lack the broad cytoplasmic sheets of the large cells. Several large-cell groups show stacked/overlapping cytoplasm so that nuclear outlines must be traced individually. Where two dark nuclear centers sit in one continuous cytoplasmic body without a separating border, that object is a single multinucleated large cell; where overlapping cytoplasm still shows separately resolvable nuclear centers with separable borders, those are separate large cells.
+Throughout, many additional tiny dark purple-black objects remain in the background between these large cells; they lack the broad cytoplasmic sheets of the large cells. In several regions, large-cell cytoplasm is stacked or overlapping so that more than one dark nuclear center is visible within crowded areas of the field.
