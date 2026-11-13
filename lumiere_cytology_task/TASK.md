@@ -26,11 +26,22 @@
 
 ---
 
-## 2. Prompt (paste — unchanged structure)
+## 2. Prompt (paste) — thresholds added to settle borderline HSIL/LSIL calls
 
 ```
-Image 1 is a field from a conventional cervical Pap smear stained with the Papanicolaou method. Restrict analysis to squamous epithelial cells. Using Bethesda System interpretive criteria, identify every cell in the field that meets criteria for HSIL and every cell that meets criteria for LSIL. Compute the ratio (number of HSIL cells) / (number of LSIL cells) and report it as a single reduced fraction in lowest terms (for example, 3/5). When epithelial cells touch, overlap, or appear clustered, count them as separate cells if two or more distinct nuclei are resolvable; count as one cell only when multiple nuclei lie within a single continuous cytoplasmic body without separable cell borders (a multinucleated cell). For a mononucleated cell, include it only if its nucleus center lies inside the visible frame (including cells cut by the image boundary under that same rule). For a multinucleated cell, include it if and only if at least one of its nucleus centers lies inside the visible frame; otherwise exclude it. Exclude inflammatory cells and non-epithelial debris from both tallies. Do not use external look-up of this image's published annotations.
+Image 1 is a field from a conventional cervical Pap smear stained with the Papanicolaou method. Restrict analysis to squamous epithelial cells. Take as the reference intermediate-type nuclear size the small dense nuclei in the abundant-cytoplasm large cells near the upper-right (about 85–91% across, 16–19% down).
+
+Assign each squamous epithelial cell to at most one tally with these exclusive thresholds:
+• HSIL if and only if (a) the nucleus occupies more than half of that cell’s visible area, AND (b) chromatin is dark and coarsely granular, AND (c) the nuclear contour is irregular (not smoothly round/oval).
+• LSIL if and only if the cell fails the HSIL test, AND the nucleus occupies half or less of the cell’s visible area, AND at least one of: (d) nucleus clearly larger than the reference intermediate-type nuclei; or (e) a sharp pale perinuclear cavity with denser peripheral cytoplasm is present.
+Exclude from both tallies any epithelial cell meeting neither set. Never double-count a cell.
+
+When cells touch/overlap/cluster, count separate cells if distinct nuclei are resolvable; count as one cell only if multiple nuclei lie in one continuous cytoplasmic body without separable borders (multinucleated). Include a mononucleated cell only if its nucleus center is inside the frame (also if cut by the boundary under that rule). Include a multinucleated cell if and only if at least one nucleus center is inside the frame. Exclude inflammatory cells and non-epithelial debris.
+
+Report (HSIL count)/(LSIL count) as a reduced fraction in lowest terms (for example, 3/5). Do not look up this image’s published annotations.
 ```
+
+**Fix note:** Reviewer rejected unconstrained Bethesda calls as too borderline. Prompt now states exclusive visual thresholds (N:C half-area cut, chromatin, contour, reference nucleus, halo) plus overlap/frame conventions.
 
 ---
 
@@ -51,17 +62,19 @@ Text (case insensitive) — reduced fraction `a/b`
 
 ## 5. Golden solution
 
-Step 1: Identify the preparation as a conventional cervical Pap smear (Papanicolaou stain). Restrict analysis to squamous epithelial cells; do not score the numerous tiny dark background objects as epithelial cells.
+Step 1: Identify the preparation as a conventional cervical Pap smear (Papanicolaou stain). Restrict analysis to squamous epithelial cells; ignore tiny dark background objects.
 
-Step 2: Apply the prompt’s separation rules. When epithelial cells touch or overlap, count separate cells if distinct nuclei are resolvable. Count a multinucleated epithelial cell as one cell when multiple nuclei lie in a single continuous cytoplasmic body. Include a mononucleated cell only if its nucleus center is inside the frame; include a multinucleated cell if at least one nucleus center is inside the frame.
+Step 2: Fix the reference intermediate-type nuclear size from the small dense nuclei in the abundant-cytoplasm cells near the upper-right (about 85–91% across, 16–19% down).
 
-Step 3: Using Bethesda System criteria (solver-supplied), identify every LSIL squamous cell in the field — mature cells with relatively abundant cytoplasm plus nuclear enlargement and/or koilocytic perinuclear clearing. Expert enumeration on this image yields **5** LSIL cells (concentrated especially in the lower-central orange-pink group).
+Step 3: Apply overlap/frame rules: separate cells if distinct nuclei are resolvable; one cell if multinucleated (multiple nuclei in one continuous cytoplasmic body); mononucleated inclusion requires nucleus center in frame; multinucleated inclusion requires ≥1 nucleus center in frame.
 
-Step 4: Using Bethesda System criteria (solver-supplied), identify every HSIL squamous cell — less mature cells with markedly increased N:C ratio, hyperchromatic/coarse nuclei, often in blue-green cytoplasm (including near the top edge and right-sided crowded groups). Expert enumeration yields **12** HSIL cells.
+Step 4: Apply the prompt’s exclusive HSIL threshold: nucleus occupies more than half of the cell’s visible area AND dark coarsely granular chromatin AND irregular nuclear contour. Expert application on this field yields **12** HSIL cells.
 
-Step 5: Do not include ASC-US, SCC, or NILM cells in either tally. Do not look up external published annotations while solving; the counts above are the image-grounded expert totals for this field.
+Step 5: Among remaining epithelial cells, apply the LSIL threshold: nucleus occupies half or less of the cell’s visible area AND (larger than the reference intermediate-type nuclei OR sharp pale perinuclear cavity with denser rim). Expert application yields **5** LSIL cells.
 
-Step 6: Ratio = 12 / 5. Already reduced (gcd=1) → **12/5**.
+Step 6: Exclude cells meeting neither threshold. Never double-count.
+
+Step 7: Ratio = 12/5 (already reduced).
 
 Final Answer: 12/5
 
