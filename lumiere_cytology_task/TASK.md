@@ -106,14 +106,15 @@ The model produced an HSIL/LSIL ratio but bound Bethesda categories to the wrong
 
 ---
 
-## 9. Model tests (FAILURE_BAR MET on #97)
+## 9. Model tests (FAILURE_BAR MET on #97 + threshold prompt)
 
 | Tester | HSIL | LSIL | Answer | vs GTFA `12/5` |
 |--------|------|------|--------|----------------|
-| Grok 4.7 (`grok-4.7-xhigh`) | 13 | 2 | `13/2` | ✗ fail |
-| Grok 4.6 (`cursor-grok-4.6-xhigh`) | 4 | 5 | `4/5` | ✗ fail |
+| Grok 4.7 (`grok-4.7-xhigh`) | 0 | 8 | `0/1` | ✗ fail |
+| Grok 4.6 (`cursor-grok-4.6-xhigh`) | 0 | 17 | `0/1` | ✗ fail |
 
-Failures are Bethesda category misbinding (HSIL over/under-call and LSIL miscount), not pure arithmetic.
+Prior unconstrained-Bethesda run (superseded): `13/2`, `4/5`.  
+Threshold-prompt failures: models applied the N:C/chromatin/contour tests but mis-bound which cells meet the HSIL triple threshold (reported 0 HSIL), yielding `0/1` instead of `12/5` — label/threshold-to-cell misbinding, not pure arithmetic.
 
 ---
 
