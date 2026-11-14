@@ -1,0 +1,15 @@
+Image 1 is a conventional Papanicolaou-stained cervical cytology field. Score only squamous epithelial cells.
+
+Panel (\% width from left, \% height from top): score exactly the 21 cells with nucleus centers nearest these coordinates (one cell each; ignore all other cells): (78,1),(81,3),(7,5),(84,7),(59,50),(27,57),(80,59),(54,61),(25,63),(74,64),(57,65),(77,65),(54,69),(56,73),(67,73),(61,74),(60,78),(63,87),(66,94),(80,95),(83,96).
+
+Reference major-axis length = the small dense nucleus at (85,16). Chromatin anchor = the large dark nucleus at (54,61); chromatin must be at least as dark and coarsely textured as that anchor.
+
+Assign each panel cell to at most one morphologic pattern (first match wins; these thresholds settle borderline calls):
+1. Pattern C if nucleus occupies \(>\) half of the cell's visible area, chromatin meets the anchor, nuclear contour is irregular, AND cytoplasm is predominantly orange-pink/orangeophilic or the cell is caudate/spindle-keratinized.
+2. Else Pattern B if nucleus occupies \(>\) half of the cell's visible area, chromatin meets the anchor, AND nuclear contour is irregular.
+3. Else Pattern A if nucleus occupies \(\le\) half of the cell's visible area, AND (major-axis \(\ge 2\times\) reference OR pale perinuclear clearing present).
+4. Else exclude.
+
+Overlap: separate cells if distinct nuclei are resolvable; one cell if multiple nuclei share one continuous cytoplasmic body (use largest nucleus only). Each panel coordinate marks one in-frame nucleus center.
+
+Using Bethesda System knowledge of squamous dysplasia progression, map Patterns A/B/C onto the low-grade SIL, high-grade SIL, and invasive squamous-carcinoma morphologic grades (you supply which pattern is which grade). Let \(n_1,n_2,n_3\) be the counts in increasing severity order and \(B=n_1+2n_2+3n_3\). Report \(n_1,n_2,n_3,B\) as four integers comma-separated with no spaces. Do not look up published annotations.
