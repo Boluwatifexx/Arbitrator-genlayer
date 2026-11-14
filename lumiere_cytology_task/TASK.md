@@ -107,7 +107,12 @@ The model misclassified squamous cells under Bethesda criteria (wrong \(N_{\math
 
 ## 9. Model tests
 
-Retest pending (GTFA `5,12,4,41`). Prior abbreviation endpoint: platform models both returned `SCC` (failure bar not met); Prompt Checker flagged OPEN_ENDED.
+| Block | Model | Answer | vs GTFA `5,12,4,41` |
+|-------|-------|--------|---------------------|
+| 2 | Grok-4.6 xhigh | `4,0,0,4` | FAIL |
+| 1 | Grok-4.7 xhigh | pending | — |
+
+**Block 2 justification (→ `4,0,0,4`):** Wrong object counted / label–element mis-binding. The model under-called the field as only four LSIL cells and zero HSIL/SCC, so \(B=4\). Expert reading is `5,12,4,41`. Visual misclassification of high-grade and malignant squamous cells, not an arithmetic error after a correct survey.
 
 ---
 
