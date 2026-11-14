@@ -29,19 +29,19 @@
 ## 2. Prompt (paste) — thresholds added to settle borderline HSIL/LSIL calls
 
 ```
-Image 1 is a field from a conventional cervical Pap smear stained with the Papanicolaou method. Restrict analysis to squamous epithelial cells. Take as the reference intermediate-type nuclear size the small dense nuclei in the abundant-cytoplasm large cells near the upper-right (about 85–91% across, 16–19% down).
+Image 1 is a field from a conventional cervical Pap smear stained with the Papanicolaou method. Restrict analysis to squamous epithelial cells. Reference intermediate-type nuclei = the small dense nuclei in the abundant-cytoplasm large cells near the upper-right (about 85–91% across, 16–19% down). Chromatin anchor for “dark and coarsely granular” = the large dark nucleus at about 54% across, 61% down; require chromatin at least as dark and coarsely textured as that anchor (not the smooth compact reference nuclei).
 
-Assign each squamous epithelial cell to at most one tally with these exclusive thresholds:
-• HSIL if and only if (a) the nucleus occupies more than half of that cell’s visible area, AND (b) chromatin is dark and coarsely granular, AND (c) the nuclear contour is irregular (not smoothly round/oval).
-• LSIL if and only if the cell fails the HSIL test, AND the nucleus occupies half or less of the cell’s visible area, AND at least one of: (d) nucleus clearly larger than the reference intermediate-type nuclei; or (e) a sharp pale perinuclear cavity with denser peripheral cytoplasm is present.
-Exclude from both tallies any epithelial cell meeting neither set. Never double-count a cell.
+Assign each squamous epithelial cell to at most one tally:
+• HSIL if and only if (a) the nucleus occupies more than half of that cell’s visible area, AND (b) chromatin meets the dark/coarse anchor, AND (c) the nuclear contour is irregular (not smoothly round/oval).
+• LSIL if and only if the cell fails HSIL, AND the nucleus occupies half or less of the cell’s visible area, AND at least one of: (d) nucleus major-axis length ≥ 2× the reference intermediate-type major-axis length; or (e) a sharp pale perinuclear cavity with denser peripheral cytoplasm is present.
+Exclude cells meeting neither set. Never double-count.
 
-When cells touch/overlap/cluster, count separate cells if distinct nuclei are resolvable; count as one cell only if multiple nuclei lie in one continuous cytoplasmic body without separable borders (multinucleated). Include a mononucleated cell only if its nucleus center is inside the frame (also if cut by the boundary under that rule). Include a multinucleated cell if and only if at least one nucleus center is inside the frame. Exclude inflammatory cells and non-epithelial debris.
+Touch/overlap/cluster: separate cells if distinct nuclei are resolvable; one cell if multiple nuclei lie in one continuous cytoplasmic body without separable borders (multinucleated). For HSIL/LSIL tests on a multinucleated cell, use only its largest nucleus for (a)–(e): N:C = that nucleus’s area ÷ the whole cell’s visible area; enlargement compares that nucleus’s major axis to the reference. Include a mononucleated cell only if its nucleus center is inside the frame (including boundary-cut cells under that rule). Include a multinucleated cell if and only if ≥1 nucleus center is inside the frame. Exclude inflammatory cells and non-epithelial debris.
 
 Report (HSIL count)/(LSIL count) as a reduced fraction in lowest terms (for example, 3/5). Do not look up this image’s published annotations.
 ```
 
-**Fix note:** Reviewer rejected unconstrained Bethesda calls as too borderline. Prompt now states exclusive visual thresholds (N:C half-area cut, chromatin, contour, reference nucleus, halo) plus overlap/frame conventions.
+**Fix notes:** (1) multinucleated classification uses largest nucleus only for (a)–(e); (2) LSIL enlargement = major-axis ≥2× reference; (3) chromatin darkness/granularity anchored to the nucleus at ~54%,61%.
 
 ---
 
@@ -64,13 +64,13 @@ Text (case insensitive) — reduced fraction `a/b`
 
 Step 1: Identify the preparation as a conventional cervical Pap smear (Papanicolaou stain). Restrict analysis to squamous epithelial cells; ignore tiny dark background objects.
 
-Step 2: Fix the reference intermediate-type nuclear size from the small dense nuclei in the abundant-cytoplasm cells near the upper-right (about 85–91% across, 16–19% down).
+Step 2: Fix references: intermediate-type nuclear size from upper-right abundant-cytoplasm cells (~85–91% across, 16–19% down); chromatin dark/coarse anchor = large dark nucleus at ~54% across, 61% down.
 
-Step 3: Apply overlap/frame rules: separate cells if distinct nuclei are resolvable; one cell if multinucleated (multiple nuclei in one continuous cytoplasmic body); mononucleated inclusion requires nucleus center in frame; multinucleated inclusion requires ≥1 nucleus center in frame.
+Step 3: Apply overlap/frame rules. For any multinucleated cell, evaluate HSIL/LSIL using only its largest nucleus (N:C and ≥2× major-axis vs that nucleus).
 
-Step 4: Apply the prompt’s exclusive HSIL threshold: nucleus occupies more than half of the cell’s visible area AND dark coarsely granular chromatin AND irregular nuclear contour. Expert application on this field yields **12** HSIL cells.
+Step 4: Apply HSIL threshold (a)+(b)+(c) with the chromatin anchor. Expert application yields **12** HSIL cells.
 
-Step 5: Among remaining epithelial cells, apply the LSIL threshold: nucleus occupies half or less of the cell’s visible area AND (larger than the reference intermediate-type nuclei OR sharp pale perinuclear cavity with denser rim). Expert application yields **5** LSIL cells.
+Step 5: Among remaining cells, apply LSIL threshold: nucleus ≤ half cell area AND (major-axis ≥2× reference OR sharp perinuclear cavity). Expert application yields **5** LSIL cells.
 
 Step 6: Exclude cells meeting neither threshold. Never double-count.
 
