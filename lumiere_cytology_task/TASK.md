@@ -92,10 +92,14 @@ The model inspected the smear but bound the wrong Bethesda severity label to the
 
 | Block | Model | Answer | vs GTFA `SCC` |
 |-------|-------|--------|---------------|
-| 2 | Grok-4.6 xhigh | `LSIL` | FAIL (under-called; missed SCC/HSIL) |
-| 1 | Grok-4.7 xhigh | pending | — |
+| 1 | Grok-4.7 xhigh | `HSIL` | FAIL |
+| 2 | Grok-4.6 xhigh | `LSIL` | FAIL |
 
-**Failure justification (Block 2 → LSIL):** Label–element mis-binding. The model bound the field to LSIL (koilocyte/mature atypical morphology) while expert labels include SCC cells; most severe category is SCC. Image misread of the highest-grade cells, not a severity-ladder failure after a correct cell survey.
+**Failure bar: MET** (both wrong via image misinterpretation of grade).
+
+**Block 1 justification (→ HSIL):** Label–element mis-binding. The model recognized high-grade squamous cells but missed or mislabeled the SCC-criteria cells present in the field. Expert CRIC labels include SCC, so the most severe category is SCC, not HSIL. Visual under-call of the highest-grade objects, not a pure hierarchy error after a correct cell survey.
+
+**Block 2 justification (→ LSIL):** Label–element mis-binding. The model bound the field to LSIL (koilocyte/mature atypical morphology) while expert labels include SCC cells; most severe category is SCC. Image misread of the highest-grade cells.
 
 ---
 
