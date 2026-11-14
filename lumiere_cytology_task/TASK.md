@@ -26,24 +26,22 @@
 
 ---
 
-## 2. Prompt (paste) — thresholds added to settle borderline HSIL/LSIL calls
+## 2. Prompt (paste)
 
 ```
-Image 1 is a field from a conventional cervical Pap smear stained with the Papanicolaou method. Restrict analysis to squamous epithelial cells. Reference intermediate-type nuclei = the small dense nuclei in the abundant-cytoplasm large cells near the upper-right (about 85–91% across, 16–19% down). Chromatin anchor for “dark and coarsely granular” = the large dark nucleus at about 54% across, 61% down; require chromatin at least as dark and coarsely textured as that anchor (not the smooth compact reference nuclei).
+Image 1 is a field from a conventional cervical Pap smear stained with the Papanicolaou method. Restrict analysis to squamous epithelial cells. Reference intermediate-type nucleus = the single small dense nucleus in the abundant-cytoplasm large cell at about 85% across, 16% down (use only this nucleus's major-axis length as the reference length). Chromatin anchor for "dark and coarsely granular" = the large dark nucleus at about 54% across, 61% down; require chromatin at least as dark and coarsely textured as that anchor (not the smooth compact reference nucleus).
 
 Assign each squamous epithelial cell to at most one tally:
-• HSIL if and only if (a) the nucleus occupies more than half of that cell’s visible area, AND (b) chromatin meets the dark/coarse anchor, AND (c) the nuclear contour is irregular (not smoothly round/oval).
-• LSIL if and only if the cell fails HSIL, AND the nucleus occupies half or less of the cell’s visible area, AND at least one of: (d) nucleus major-axis length ≥ 2× the reference intermediate-type major-axis length; or (e) a sharp pale perinuclear cavity with denser peripheral cytoplasm is present.
+- HSIL if and only if (a) nucleus occupies more than half of that cell's visible area, AND (b) chromatin meets the dark/coarse anchor, AND (c) nuclear contour is irregular (not smoothly round/oval).
+- LSIL if and only if the cell fails HSIL, AND nucleus occupies half or less of the cell's visible area, AND at least one of: (d) \(\text{nucleus major-axis length} \ge 2 \times \text{reference intermediate-type major-axis length}\); or (e) a sharp pale perinuclear cavity with denser peripheral cytoplasm is present.
 Exclude cells meeting neither set. Never double-count.
 
-Touch/overlap/cluster: separate cells if distinct nuclei are resolvable; one cell if multiple nuclei lie in one continuous cytoplasmic body without separable borders (multinucleated). For HSIL/LSIL tests on a multinucleated cell, use only its largest nucleus for (a)–(e): N:C = that nucleus’s area ÷ the whole cell’s visible area; enlargement compares that nucleus’s major axis to the reference. Include a mononucleated cell only if its nucleus center is inside the frame (including boundary-cut cells under that rule). Include a multinucleated cell if and only if ≥1 nucleus center is inside the frame. Exclude inflammatory cells and non-epithelial debris.
+Touch/overlap/cluster: separate cells if distinct nuclei are resolvable; one cell if multiple nuclei lie in one continuous cytoplasmic body without separable borders (multinucleated). For a multinucleated cell, score (a)-(e) using only its largest nucleus: \(\mathrm{N:C} = \frac{\text{that nucleus's area}}{\text{the whole cell's visible area}}\); enlargement uses that nucleus's major axis vs the reference. Include a mononucleated cell only if its nucleus center is inside the frame (also if cut by the boundary under that rule). Include a multinucleated cell if and only if \(\ge 1\) nucleus center is inside the frame. Exclude inflammatory cells and debris.
 
-Report (HSIL count)/(LSIL count) as a reduced fraction in lowest terms (for example, 3/5). Do not look up this image’s published annotations.
+Report (HSIL count)/(LSIL count) as a reduced fraction in lowest terms (e.g. 3/5). Do not look up this image's annotations.
 ```
 
-**Fix notes:** (1) multinucleated classification uses largest nucleus only for (a)–(e); (2) LSIL enlargement = major-axis ≥2× reference; (3) chromatin darkness/granularity anchored to the nucleus at ~54%,61%.
-
----
+**Fix notes:** (1) single reference nucleus at ~85%,16%; (2) LSIL enlargement in KaTeX \(\ge 2 \times\); (3) chromatin anchor at ~54%,61%; (4) multinucleated scoring uses largest nucleus with KaTeX N:C; (5) \(\ge 1\) nucleus-center frame rule in KaTeX.
 
 ## 3. GTFA
 
