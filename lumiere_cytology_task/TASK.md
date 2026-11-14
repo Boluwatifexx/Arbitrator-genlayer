@@ -109,10 +109,14 @@ The model misclassified squamous cells under Bethesda criteria (wrong \(N_{\math
 
 | Block | Model | Answer | vs GTFA `5,12,4,41` |
 |-------|-------|--------|---------------------|
+| 1 | Grok-4.7 xhigh | `1,1,0,3` | FAIL |
 | 2 | Grok-4.6 xhigh | `4,0,0,4` | FAIL |
-| 1 | Grok-4.7 xhigh | pending | — |
 
-**Block 2 justification (→ `4,0,0,4`):** Wrong object counted / label–element mis-binding. The model under-called the field as only four LSIL cells and zero HSIL/SCC, so \(B=4\). Expert reading is `5,12,4,41`. Visual misclassification of high-grade and malignant squamous cells, not an arithmetic error after a correct survey.
+**Failure bar: MET** (both wrong via visual Bethesda misclassification).
+
+**Block 1 justification (→ `1,1,0,3`):** Wrong object counted / label–element mis-binding. The model reported only one LSIL and one HSIL with zero SCC (\(B=3\)). Expert reading is `5,12,4,41`. Severe under-call of definitive SIL/SCC cells on the image, not a pure arithmetic error after a correct survey.
+
+**Block 2 justification (→ `4,0,0,4`):** Wrong object counted / label–element mis-binding. The model under-called the field as only four LSIL cells and zero HSIL/SCC (\(B=4\)). Expert reading is `5,12,4,41`. Visual misclassification of high-grade and malignant squamous cells.
 
 ---
 
