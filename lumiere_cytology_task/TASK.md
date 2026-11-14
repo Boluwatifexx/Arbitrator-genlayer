@@ -95,10 +95,14 @@ The model mis-assigned panel cells to Patterns A/B/C and/or mis-mapped patterns 
 
 | Block | Model | Answer | vs GTFA `5,12,4,41` |
 |-------|-------|--------|---------------------|
+| 1 | Grok-4.7 xhigh | `13,2,2,23` | FAIL |
 | 2 | Grok-4.6 xhigh | `9,8,4,37` | FAIL |
-| 1 | Grok-4.7 xhigh | pending | — |
 
-**Block 2 justification (→ `9,8,4,37`):** Wrong object counted / label–element mis-binding. Mis-assigned panel cells among Patterns A/B/C (and/or severity order), yielding \(n_1=9\), \(n_2=8\), \(n_3=4\), \(B=37\) instead of `5,12,4,41`. Visual pattern-binding error on the locked panel, not a pure arithmetic slip after a correct survey.
+**Failure bar: MET** (both wrong via visual pattern / grade mis-binding on the locked panel).
+
+**Block 1 justification (→ `13,2,2,23`):** Wrong object counted / label–element mis-binding. Mis-assigned panel cells among Patterns A/B/C (and/or severity order), yielding \(n_1=13\), \(n_2=2\), \(n_3=2\), \(B=23\) instead of `5,12,4,41`. Visual pattern-binding error on the locked panel, not a pure arithmetic slip after a correct survey.
+
+**Block 2 justification (→ `9,8,4,37`):** Wrong object counted / label–element mis-binding. Mis-assigned panel cells among Patterns A/B/C (and/or severity order), yielding \(n_1=9\), \(n_2=8\), \(n_3=4\), \(B=37\) instead of `5,12,4,41`. Visual pattern-binding error on the locked panel.
 
 ---
 
