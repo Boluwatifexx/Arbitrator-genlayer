@@ -93,7 +93,12 @@ The model mis-assigned panel cells to Patterns A/B/C and/or mis-mapped patterns 
 
 ## 9. Model tests
 
-Retest pending after borderline fix.
+| Block | Model | Answer | vs GTFA `5,12,4,41` |
+|-------|-------|--------|---------------------|
+| 2 | Grok-4.6 xhigh | `9,8,4,37` | FAIL |
+| 1 | Grok-4.7 xhigh | pending | — |
+
+**Block 2 justification (→ `9,8,4,37`):** Wrong object counted / label–element mis-binding. Mis-assigned panel cells among Patterns A/B/C (and/or severity order), yielding \(n_1=9\), \(n_2=8\), \(n_3=4\), \(B=37\) instead of `5,12,4,41`. Visual pattern-binding error on the locked panel, not a pure arithmetic slip after a correct survey.
 
 ---
 
