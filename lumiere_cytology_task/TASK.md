@@ -107,16 +107,25 @@ The model misclassified squamous cells under Bethesda criteria (wrong \(N_{\math
 
 ## 9. Model tests
 
-| Block | Model | Answer | vs GTFA `5,12,4,41` |
-|-------|-------|--------|---------------------|
-| 1 | Grok-4.7 xhigh | `1,1,0,3` | FAIL |
-| 2 | Grok-4.6 xhigh | `4,0,0,4` | FAIL |
+### Platform (authoritative)
 
-**Failure bar: MET** (both wrong via visual Bethesda misclassification).
+| Block | Answer | vs GTFA `5,12,4,41` |
+|-------|--------|---------------------|
+| 1 | `0,8,2,22` | FAIL |
+| 2 | `0,10,2,26` | FAIL |
 
-**Block 1 justification (→ `1,1,0,3`):** Wrong object counted / label–element mis-binding. The model reported only one LSIL and one HSIL with zero SCC (\(B=3\)). Expert reading is `5,12,4,41`. Severe under-call of definitive SIL/SCC cells on the image, not a pure arithmetic error after a correct survey.
+**Failure bar: MET.**
 
-**Block 2 justification (→ `4,0,0,4`):** Wrong object counted / label–element mis-binding. The model under-called the field as only four LSIL cells and zero HSIL/SCC (\(B=4\)). Expert reading is `5,12,4,41`. Visual misclassification of high-grade and malignant squamous cells.
+**Block 1 justification (→ `0,8,2,22`):** Wrong object counted / label–element mis-binding. The model set \(N_{\mathrm{LSIL}}=0\) (missed definitive koilocyte/LSIL cells), under-counted HSIL as 8 (vs 12), and under-counted SCC as 2 (vs 4), yielding \(B=22\) instead of 41. Visual misclassification of squamous cells on the image; arithmetic on its own (wrong) tallies was internally consistent.
+
+**Block 2 justification (→ `0,10,2,26`):** Wrong object counted / label–element mis-binding. Same pattern: \(N_{\mathrm{LSIL}}=0\), HSIL under-called as 10, SCC under-called as 2, so \(B=26\). Missed LSIL cells and under-bound high-grade/malignant cells to the expert categories; not a pure formula error after a correct cell survey.
+
+### Local pre-checks (non-platform)
+
+| Model | Answer |
+|-------|--------|
+| Grok-4.7 xhigh | `1,1,0,3` |
+| Grok-4.6 xhigh | `4,0,0,4` |
 
 ---
 
