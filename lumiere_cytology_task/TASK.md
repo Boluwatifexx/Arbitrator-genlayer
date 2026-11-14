@@ -90,7 +90,12 @@ The model inspected the smear but bound the wrong Bethesda severity label to the
 
 ## 9. Model tests
 
-Retest pending on this prompt (GTFA `SCC`).
+| Block | Model | Answer | vs GTFA `SCC` |
+|-------|-------|--------|---------------|
+| 2 | Grok-4.6 xhigh | `LSIL` | FAIL (under-called; missed SCC/HSIL) |
+| 1 | Grok-4.7 xhigh | pending | — |
+
+**Failure justification (Block 2 → LSIL):** Label–element mis-binding. The model bound the field to LSIL (koilocyte/mature atypical morphology) while expert labels include SCC cells; most severe category is SCC. Image misread of the highest-grade cells, not a severity-ladder failure after a correct cell survey.
 
 ---
 
