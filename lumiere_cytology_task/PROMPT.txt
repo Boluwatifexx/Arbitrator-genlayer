@@ -1,1 +1,15 @@
-Image 1 is a field from a conventional cervical Pap smear stained with the Papanicolaou method. Restrict analysis to squamous epithelial cells. Using standard Bethesda System interpretive criteria as applied in cervical cytology practice, determine the most severe squamous diagnostic category present in this field. A category is present if at least one squamous epithelial cell meets standard Bethesda criteria for that category. When epithelial cells touch, overlap, or appear clustered, treat them as separate cells if two or more distinct nuclei are resolvable; treat as one cell only if multiple nuclei lie in one continuous cytoplasmic body without separable borders (multinucleated). Include a mononucleated cell only if its nucleus center is inside the frame (also if cut by the boundary under that rule). Include a multinucleated cell if and only if \(\ge 1\) nucleus center is inside the frame. Exclude inflammatory cells and non-epithelial debris. Do not invent ad hoc morphometric cutoffs in place of Bethesda criteria, and do not look up this image's published annotations. Report the standard Bethesda abbreviation only (for example, LSIL).
+Image 1 is a field from a conventional cervical Pap smear stained with the Papanicolaou method. Restrict analysis to squamous epithelial cells.
+
+Using standard Bethesda System interpretive criteria as applied in cervical cytology practice (do not invent ad hoc morphometric cutoffs; do not look up this image's published annotations), tally three mutually exclusive counts among included squamous epithelial cells:
+- \(N_{\mathrm{LSIL}}\): cells meeting definitive LSIL criteria
+- \(N_{\mathrm{HSIL}}\): cells meeting definitive HSIL criteria
+- \(N_{\mathrm{SCC}}\): cells meeting definitive squamous cell carcinoma (SCC) criteria
+
+Exclude ASC-US, ASC-H, NILM, inflammatory cells, and non-epithelial debris from all three tallies. Assign each included cell to at most one tally (never double-count). When a cell is equivocal between an ASC category and a definitive SIL/SCC category, exclude it from all three tallies.
+
+Touch/overlap/cluster: separate cells if distinct nuclei are resolvable; one cell if multiple nuclei lie in one continuous cytoplasmic body without separable borders (multinucleated). Include a mononucleated cell only if its nucleus center is inside the frame (also if cut by the boundary under that rule). Include a multinucleated cell if and only if \(\ge 1\) nucleus center is inside the frame. For a multinucleated cell, classify using only its largest nucleus against the whole cell's cytoplasm.
+
+Define the squamous lesion burden index
+\[ B = N_{\mathrm{LSIL}} + 2 N_{\mathrm{HSIL}} + 3 N_{\mathrm{SCC}}. \]
+
+Report four integers in this exact order, comma-separated with no spaces: \(N_{\mathrm{LSIL}},N_{\mathrm{HSIL}},N_{\mathrm{SCC}},B\).
