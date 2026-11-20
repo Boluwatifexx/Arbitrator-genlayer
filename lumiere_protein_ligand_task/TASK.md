@@ -1,9 +1,9 @@
-# Project Lumière — Protein-ligand (A3AR–CF101 Figure 2)
+# Project Lumière — Protein-ligand (Polθ–AB25583 Figure 1)
 
-**Assay:** Protein-ligand · **Subdomain:** Biochemistry / GPCR structural biology  
-**Image:** *Nat Commun* (2024) https://doi.org/10.1038/s41467-024-47207-6 Figure 2 (CC BY 4.0)
+**Assay:** Protein-ligand · **Subdomain:** Biochemistry / Enzymology  
+**Image:** *Nat Commun* https://doi.org/10.1038/s41467-024-51351-4 Figure 1 (CC BY 4.0)
 
-**Pivot:** P2X1 labeled-distance endpoints kept PASSing. New endpoint: adenine π-stack residue + TM6 Ballesteros-Weinstein count on panel a.
+**Pivot:** Structure-label OCR endpoints kept PASSing. New endpoint uses panel d ATP-dependence to classify competitive vs noncompetitive inhibition.
 
 ---
 
@@ -12,9 +12,9 @@
 | Field | Value |
 |-------|-------|
 | Image | `protein_ligand_image.jpg` |
-| DOI | https://doi.org/10.1038/s41467-024-47207-6 |
+| DOI | https://doi.org/10.1038/s41467-024-51351-4 |
 | License | CC BY 4.0 |
-| Panel | a |
+| Panel | d |
 
 ---
 
@@ -26,29 +26,29 @@ See `PROMPT.txt`.
 
 ## 3. GTFA
 
-**`F168,3`**
+**`6,noncompetitive`**
 
-(π-stack = F168; TM6 labels W243, L246, N250)
+(ATP legend: 100, 400, 600 µM → ratio \(600/100=6\); overlaid curves ⇒ noncompetitive w.r.t. ATP)
 
 ---
 
 ## 4. Answer format
 
-Text (case sensitive) — `Res,count`
+Text (case insensitive on class) — `ratio,class`
 
 ---
 
 ## 5. Golden solution
 
-Step 1: Restrict to panel a (CF101 / orange ligand).
+Step 1: Restrict to panel d.
 
-Step 2 (domain + vision): Adenosine-receptor nucleoside agonists place the adenine ring in a π-stack on ECL2 position 45.52. In panel a that residue is **F168**.
+Step 2 (vision): Legend ATP concentrations are 100, 400, and 600 µM. Ratio \(600/100=6\).
 
-Step 3 (vision): Count labeled contacting residues whose Ballesteros-Weinstein index is on TM6 (integer part 6): **W243**, **L246**, **N250** → **3**.
+Step 3 (domain + vision): The three AB25583 inhibition curves nearly superimpose across a 6-fold ATP range, so potency does not drop as [ATP] rises. That pattern rejects classical competitive ATP-site inhibition and matches **noncompetitive** (allosteric) inhibition w.r.t. ATP.
 
-Step 4: Format `F168,3`.
+Step 4: Report `6,noncompetitive`.
 
-Final Answer: F168,3
+Final Answer: 6,noncompetitive
 
 ---
 
@@ -60,34 +60,34 @@ See `IMAGE_DESCRIPTION.txt`.
 
 ## 7. Distractors (5)
 
-1. `F168,4` — overcount TM6  
-2. `W243,3` — Trp6.48 mistaken for adenine π-stack  
-3. `F168,2` — undercount TM6  
-4. `H272,3` — TM7 His mistaken for π-stack  
-5. `F168,45` — used BW number as the count  
+1. `6,competitive` — wrong mechanism class  
+2. `4,noncompetitive` — used 400/100  
+3. `6,uncompetitive` — wrong class synonym not requested  
+4. `3,noncompetitive` — counted conditions instead of concentration ratio  
+5. `600,noncompetitive` — reported highest [ATP] instead of the ratio  
 
 ---
 
 ## 8. Model failure justification (template)
 
-Error type: **Label–element or axis mis-binding**
+Error type: **Label–element mis-binding** / mechanism misclassification
 
-Wrong π-stack residue and/or wrong TM6 label count on panel a versus `F168,3`.
+Wrong ATP concentration ratio from panel d legend and/or misclassified competitive vs noncompetitive behavior from the overlaid curves versus `6,noncompetitive`.
 
 ---
 
 ## 9. Model tests
 
-Retest pending on `F168,3`.
+Retest pending.
 
-Retired dual-PASS: P2X1 panel H `R292,6.3`; plus prior mitapivat/P2X1 Fig5/Fig6 endpoints.
+Retired PASS: A3AR `F168,3` (Grok-4.6); P2X1 distance/stoichiometry; mitapivat PoseEdit; Fig6 arithmetic.
 
 ---
 
 ## 10. References
 
 ```
-Cryo-EM structures of adenosine receptor A3AR bound to selective agonists. Nature Communications (2024). https://doi.org/10.1038/s41467-024-47207-6 (CC BY 4.0)
+Structural basis for a Polθ helicase small-molecule inhibitor revealed by cryo-EM. Nature Communications (2024). https://doi.org/10.1038/s41467-024-51351-4 (CC BY 4.0)
 
-Figure 2: https://doi.org/10.1038/s41467-024-47207-6
+Figure 1: https://doi.org/10.1038/s41467-024-51351-4
 ```

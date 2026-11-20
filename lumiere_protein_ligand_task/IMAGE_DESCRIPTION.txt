@@ -1,7 +1,11 @@
-The image is a six-panel scientific figure on a white background, labeled a through f.
+The image is a multi-panel scientific figure on a white background with panels labeled a through o arranged in a tall grid.
 
-Panels a and b (top row) are 3D ribbon-and-stick binding-site views. Panel a shows a light-blue ribbon protein with an orange stick ligand; many amino-acid side chains are drawn as blue sticks with text labels that combine a one-letter residue code, a sequence number, and a smaller Ballesteros-Weinstein style index. Dashed lines connect some ligand atoms to nearby side chains. Panel b is similar but with a pink ribbon, pink sticks, and a teal stick ligand, again with multiple residue labels of the same mixed format.
+Panel a shows a 2D chemical structure of a small molecule labeled AB25583. Panel b is a schematic of a protein oval on a DNA strand with an ATP to ADP+Pi annotation and a 3-prime to 5-prime arrow.
 
-Panels c through f (middle and bottom rows) are dose-response plots. Each plot has Fold change (relative DMSO) on the vertical axis (about 0 to 4) and Log [Ligand] (M) on the horizontal axis (about -12 to -4). Sigmoidal and flat curves appear with different colored markers; each panel has an in-plot legend listing WT and several alanine mutants named with residue codes and Ballesteros-Weinstein indices. Panels c and d are marked CF101; panels e and f are marked CF102.
+Panel c is a dose-response plot of relative ATP hydrolysis percent versus AB25583 concentration in micromolar on a log x-axis, with several marker styles for different helicases and a horizontal dashed line near 50 percent. Panel d is a similar dose-response plot of percent ATP hydrolysis versus AB25583 concentration, with three marker styles corresponding to different ATP concentrations listed in an in-plot legend, again with a horizontal dashed line near 50 percent.
 
-No separate scale bar is present beyond axis ticks and the printed residue labels in panels a and b.
+Panels e and f are colony-survival plots with percent colonies versus AB25583 concentration, each comparing two cell genotypes with blue and red markers. Panel g shows another chemical structure labeled AB25595. Panel h is a dose-response plot for that analog. Panels i through l are additional colony-survival curves for various cell lines and genotypes.
+
+Panel m combines immunofluorescence micrographs of nuclei with a bar graph of percent nuclei above a foci threshold. Panels n and o are bar graphs of percent nuclei with RAD51 foci and a GFP/dsRED percent change metric, respectively.
+
+Axis labels, legends, panel letters, and scale information appear as printed text/graphics on the figure; no separate external scale bar is added beyond what is printed in panel m.
