@@ -1,3 +1,5 @@
-Image 1 shows biochemical assays of the Pol\(\theta\) helicase inhibitor AB25583. Use only panel d.
+Image 1 shows SAR and docking analysis for parkin–pUb molecular glues. Use panels c and d.
 
-Read the three ATP concentrations used for the overlaid AB25583 dose-response curves (legend values in \(\mu\mathrm{M}\)). Compute the ratio of the highest ATP concentration to the lowest ATP concentration as an integer. Separately, using standard enzyme-inhibition criteria, classify AB25583's mechanism with respect to ATP from the relative positions of those curves (choose exactly one: competitive or noncompetitive). Report ratio,class with no spaces (example: 5,competitive). Do not look up published annotations for this figure.
+From panel c, identify the single S-configured compound whose R-group is methylsulfonamide and report its EC50 converted to nM as an integer (printed µM × 1000). Separately, from panel d (left scatter), read the printed R² for the solid trend line and the printed R² for the dashed trend line that excludes the point marked #. Report those two R² values with two decimals each, solid first.
+
+Report exactly: EC50_nM,R2_solid,R2_dashed with no spaces (example: 50,0.50,0.80). Do not look up published annotations for this figure.

@@ -1,9 +1,9 @@
-# Project Lumière — Protein-ligand (Polθ–AB25583 Figure 1)
+# Project Lumière — Protein-ligand (Parkin Figure 5 SAR + R²)
 
-**Assay:** Protein-ligand · **Subdomain:** Biochemistry / Enzymology  
-**Image:** *Nat Commun* https://doi.org/10.1038/s41467-024-51351-4 Figure 1 (CC BY 4.0)
+**Assay:** Protein-ligand · **Subdomain:** Medicinal chemistry / computational docking  
+**Image:** *Nat Commun* https://doi.org/10.1038/s41467-024-51889-3 Figure 5 (CC BY 4.0)
 
-**Pivot:** Structure-label OCR endpoints kept PASSing. New endpoint uses panel d ATP-dependence to classify competitive vs noncompetitive inhibition.
+**Pivot:** ITC fold arithmetic PASSed both Groks. New endpoint: panel-c stereoisomer/R-group→EC50 binding + panel-d solid vs dashed R².
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Field | Value |
 |-------|-------|
-| Image | `protein_ligand_image.jpg` |
-| DOI | https://doi.org/10.1038/s41467-024-51351-4 |
+| Image | `protein_ligand_image.jpg` ← `raw/parkin/fig5.png` |
+| DOI | https://doi.org/10.1038/s41467-024-51889-3 |
 | License | CC BY 4.0 |
-| Panel | d |
+| Panels | c, d |
 
 ---
 
@@ -26,29 +26,29 @@ See `PROMPT.txt`.
 
 ## 3. GTFA
 
-**`6,noncompetitive`**
+**`100,0.31,0.78`**
 
-(ATP legend: 100, 400, 600 µM → ratio \(600/100=6\); overlaid curves ⇒ noncompetitive w.r.t. ATP)
+(Panel c: BIO-2006661 (S), methylsulfonamide, EC50 \(0.10\,\mu\mathrm{M}=100\,\mathrm{nM}\). Panel d left: solid \(R^2=0.31\), dashed excl. # \(R^2=0.78\).)
 
 ---
 
 ## 4. Answer format
 
-Text (case insensitive on class) — `ratio,class`
+Text — `EC50_nM,R2_solid,R2_dashed`
 
 ---
 
 ## 5. Golden solution
 
-Step 1: Restrict to panel d.
+Step 1 (vision): In panel c, the methylsulfonamide S-row is **BIO-2006661** with EC50 **0.10 µM**.
 
-Step 2 (vision): Legend ATP concentrations are 100, 400, and 600 µM. Ratio \(600/100=6\).
+Step 2 (domain): \(0.10\times1000=100\,\mathrm{nM}\).
 
-Step 3 (domain + vision): The three AB25583 inhibition curves nearly superimpose across a 6-fold ATP range, so potency does not drop as [ATP] rises. That pattern rejects classical competitive ATP-site inhibition and matches **noncompetitive** (allosteric) inhibition w.r.t. ATP.
+Step 3 (vision): Panel d left prints **R² = 0.31** on the solid line and **R² = 0.78** on the dashed (#-excluded) line — do not swap, and do not use the right-plot 0.90.
 
-Step 4: Report `6,noncompetitive`.
+Step 4: Report `100,0.31,0.78`.
 
-Final Answer: 6,noncompetitive
+Final Answer: 100,0.31,0.78
 
 ---
 
@@ -60,34 +60,36 @@ See `IMAGE_DESCRIPTION.txt`.
 
 ## 7. Distractors (5)
 
-1. `6,competitive` — wrong mechanism class  
-2. `4,noncompetitive` — used 400/100  
-3. `6,uncompetitive` — wrong class synonym not requested  
-4. `3,noncompetitive` — counted conditions instead of concentration ratio  
-5. `600,noncompetitive` — reported highest [ATP] instead of the ratio  
+1. `100,0.78,0.31` — swapped solid/dashed R²  
+2. `100,0.31,0.90` — used right-plot R² as dashed  
+3. `10,0.31,0.78` — left EC50 in µM×10 or mis-converted 0.10  
+4. `280,0.31,0.78` — picked difluoroethyl S (BIO-2008218, 0.28 µM)  
+5. `100,0.31,0.31` — duplicated solid R²  
 
 ---
 
 ## 8. Model failure justification (template)
 
-Error type: **Label–element mis-binding** / mechanism misclassification
+Error type: **Label–element mis-binding** (table row and/or regression-line R²)
 
-Wrong ATP concentration ratio from panel d legend and/or misclassified competitive vs noncompetitive behavior from the overlaid curves versus `6,noncompetitive`.
+Wrong EC50_nM and/or R² pair versus `100,0.31,0.78`.
 
 ---
 
 ## 9. Model tests
 
-Retest pending.
+Local Grok-4.7-xhigh and Grok-4.6-xhigh both returned `100,0.31,0.78` (PASS). Holding dual-fail bar not yet met; further pivots required.
 
-Retired PASS: A3AR `F168,3` (Grok-4.6); P2X1 distance/stoichiometry; mitapivat PoseEdit; Fig6 arithmetic.
+Prior local dual-PASS this session: Parkin ITC `150,2400`; DAT `2.7,2.4,F326A`; B⁰AT1 `4,3` / `JX238,27` / `3.44,4.22,JX225`; Polθ residue/mechanism/noncompetitive.
+
+Retired PASS: Parkin ITC `150,2400`; DAT `2.7,2.4,F326A`; B⁰AT1; Polθ; A3AR; P2X1; mitapivat.
 
 ---
 
 ## 10. References
 
 ```
-Structural basis for a Polθ helicase small-molecule inhibitor revealed by cryo-EM. Nature Communications (2024). https://doi.org/10.1038/s41467-024-51351-4 (CC BY 4.0)
+Activation of parkin by a molecular glue. Nature Communications (2024). https://doi.org/10.1038/s41467-024-51889-3 (CC BY 4.0)
 
-Figure 1: https://doi.org/10.1038/s41467-024-51351-4
+Figure 5: https://doi.org/10.1038/s41467-024-51889-3
 ```

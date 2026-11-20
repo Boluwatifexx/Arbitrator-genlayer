@@ -1,11 +1,7 @@
-The image is a multi-panel scientific figure on a white background with panels labeled a through o arranged in a tall grid.
+The image is a structure–activity figure for small-molecule activators of a ubiquitin ligase complex, on a white background with panels labeled a through d.
 
-Panel a shows a 2D chemical structure of a small molecule labeled AB25583. Panel b is a schematic of a protein oval on a DNA strand with an ATP to ADP+Pi annotation and a 3-prime to 5-prime arrow.
+Panel a shows three pocket close-ups of docked ligands as sticks against protein surfaces labeled RING0 and pUb, with several orange residue sticks and pocket titles naming K48, W183, and P180 sites. Panel b is a table of subseries-1 analogues with 2D structures, EC50 values in micromolar, docking scores, and MM-GBSA binding energies, grouped by which pocket is targeted. Panel c is a second table for a shared tricyclic scaffold with varying R-groups (acetyl, methylsulfonamide, and a fluorinated alkyl acyl variant) and paired S/R stereoisomers, again listing EC50, docking, and MM-GBSA columns; several R isomers are marked as not fitting.
 
-Panel c is a dose-response plot of relative ATP hydrolysis percent versus AB25583 concentration in micromolar on a log x-axis, with several marker styles for different helicases and a horizontal dashed line near 50 percent. Panel d is a similar dose-response plot of percent ATP hydrolysis versus AB25583 concentration, with three marker styles corresponding to different ATP concentrations listed in an in-plot legend, again with a horizontal dashed line near 50 percent.
+Panel d contains two scatter plots. The left plot relates docking scores to pEC50 with a solid regression line, a dashed regression line that excludes a marked outlier, and printed R² values for each fit. The right plot relates docking scores to MM-GBSA binding energies with a single fitted line and a printed R².
 
-Panels e and f are colony-survival plots with percent colonies versus AB25583 concentration, each comparing two cell genotypes with blue and red markers. Panel g shows another chemical structure labeled AB25595. Panel h is a dose-response plot for that analog. Panels i through l are additional colony-survival curves for various cell lines and genotypes.
-
-Panel m combines immunofluorescence micrographs of nuclei with a bar graph of percent nuclei above a foci threshold. Panels n and o are bar graphs of percent nuclei with RAD51 foci and a GFP/dsRED percent change metric, respectively.
-
-Axis labels, legends, panel letters, and scale information appear as printed text/graphics on the figure; no separate external scale bar is added beyond what is printed in panel m.
+Printed compound IDs, stereochemical R/S labels, numeric assay and scoring values, pocket names, axis titles, and R² annotations are part of the figure graphics. The overall composition is a SAR dashboard linking pocket poses, tabular potencies, and correlation plots of docking metrics to measured activity.
