@@ -1,11 +1,11 @@
-The image is a multi-panel scientific figure of a protein–ligand cryo-EM structure on a white background. Panel letters A through H label the sub-views.
+The image is a multi-panel scientific figure of a protein-ligand cryo-EM structure on a white background. Panel letters A through H label the sub-views.
 
 Panel A (large, left): A ribbon model of a trimeric receptor with three protomers colored in distinct purple/pink/gray shades. Multiple small-molecule ligands appear as stick models with tan or green carbons, red oxygens, and yellow sulfurs, located at extracellular interfaces. A rectangular inset box highlights one binding region, with a curved arrow marked 20 degrees pointing toward adjacent zoom panels.
 
 Panels B and C (upper right): Zoomed ribbon views of two protomers (pink and gray) at one interface. Two ligand molecules are shown as sticks—one with tan carbons and one with green carbons—stacked in the same cleft. Panel C is annotated as a rotation relative to panel B (about 60 degrees).
 
-Panels D and E (mid-right): Further rotated views of the same dual-ligand site. Dashed interaction lines connect ligand atoms to nearby amino-acid side chains. Residue labels visible in these zooms include identities such as K309, R292, R139, K136, K68, K70, and N184 (exact placement varies by panel).
+Panels D and E (mid-right): Further rotated views of the same dual-ligand site. Dashed interaction lines connect ligand atoms to nearby amino-acid side chains. Several residue labels appear near the ligands (including lysine and arginine numbers among others).
 
-Panels F, G, and H (lower row): Close-ups of ionic/hydrogen-bond contacts with printed angstrom distances on dashed lines. Panel F shows labels including R139 and K136 with several numeric distance annotations near sulfonate groups. Panels G and H continue magnified contact views around arginine/lysine side chains and ligand sulfonates, again with dashed lines and angstrom numerals.
+Panels F, G, and H (lower row): Close-ups of contacts with printed angstrom distances on dashed lines. Panel F shows two residue labels near sulfonate groups, with four numeric distance annotations visible on dashed contacts in that panel (values in the 2–4 angstrom range). Panels G and H continue magnified contact views around arginine/lysine side chains and ligand sulfonates, again with dashed lines and angstrom numerals.
 
 No external scale bar is present beyond the printed angstrom labels on interaction dashes. The overall layout places the full trimer on the left and successive zooms on the right and bottom.
