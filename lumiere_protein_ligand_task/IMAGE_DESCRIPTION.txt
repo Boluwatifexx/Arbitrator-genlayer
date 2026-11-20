@@ -1,11 +1,7 @@
-The image is a multi-panel scientific figure of a protein-ligand cryo-EM structure on a white background. Panel letters A through H label the sub-views.
+The image is a six-panel scientific figure on a white background, labeled a through f.
 
-Panel A (large, left): A ribbon model of a trimeric receptor with three protomers colored in distinct purple/pink/gray shades. Multiple small-molecule ligands appear as stick models with tan or green carbons, red oxygens, and yellow sulfurs, located at extracellular interfaces. A rectangular inset box highlights one binding region, with a curved arrow marked 20 degrees pointing toward adjacent zoom panels.
+Panels a and b (top row) are 3D ribbon-and-stick binding-site views. Panel a shows a light-blue ribbon protein with an orange stick ligand; many amino-acid side chains are drawn as blue sticks with text labels that combine a one-letter residue code, a sequence number, and a smaller Ballesteros-Weinstein style index. Dashed lines connect some ligand atoms to nearby side chains. Panel b is similar but with a pink ribbon, pink sticks, and a teal stick ligand, again with multiple residue labels of the same mixed format.
 
-Panels B and C (upper right): Zoomed ribbon views of two protomers (pink and gray) at one interface. Two ligand molecules are shown as sticks—one with tan carbons and one with green carbons—stacked in the same cleft. Panel C is annotated as a rotation relative to panel B (about 60 degrees).
+Panels c through f (middle and bottom rows) are dose-response plots. Each plot has Fold change (relative DMSO) on the vertical axis (about 0 to 4) and Log [Ligand] (M) on the horizontal axis (about -12 to -4). Sigmoidal and flat curves appear with different colored markers; each panel has an in-plot legend listing WT and several alanine mutants named with residue codes and Ballesteros-Weinstein indices. Panels c and d are marked CF101; panels e and f are marked CF102.
 
-Panels D and E (mid-right): Further rotated views of the same dual-ligand site. Dashed interaction lines connect ligand atoms to nearby amino-acid side chains. Several residue labels appear near the ligands.
-
-Panels F, G, and H (lower row): Close-ups of contacts with printed angstrom distances on dashed lines. Panel F focuses on contacts near one ligand color with multiple residue labels and numeric angstrom annotations. Panel G shows a tight zoom with at least one printed angstrom value near a pink ribbon. Between G and H a rotation glyph indicates a 180 degree turn. Panel H shows both tan-carbon and green-carbon ligand sticks together with pink ribbon elements, more than one arginine/lysine-style side-chain stick, and several dashed contacts carrying printed angstrom numerals.
-
-No external scale bar is present beyond the printed angstrom labels on interaction dashes. The overall layout places the full trimer on the left and successive zooms on the right and bottom.
+No separate scale bar is present beyond axis ticks and the printed residue labels in panels a and b.
