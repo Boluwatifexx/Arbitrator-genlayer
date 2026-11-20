@@ -63,14 +63,10 @@ See `IMAGE_DESCRIPTION.txt`.
 ## 7. Distractors (5)
 
 1. `R292A,31` — meets IC50 fold but fails ATP EC50 filter  
-2. `K136A,31` — wrong fold arithmetic (used R292A numerator)  
-3. `N184A,6` — A-only mutant; fold ~6 is not >10  
-4. `K136A,39` wait that's GTFA - use `R139A,81` — panel B mutant not in A  
-5. `K136A/R139A,988` — double mutant excluded; wrong fold  
-
-Fix distractor 4/5:
-4. `R139A,81`  
-5. `K136A,40` — off-by-one rounding  
+2. `K136A,31` — wrong fold arithmetic  
+3. `N184A,6` — A-only mutant; fold not >10  
+4. `R139A,81` — appears in B/C, not in panel A  
+5. `K136A,40` — off-by-one rounding of 38.75
 
 ---
 
