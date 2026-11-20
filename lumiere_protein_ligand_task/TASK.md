@@ -84,11 +84,11 @@ The model misclassified which hydrogen-bond protein partners use backbone vs sid
 
 ## 9. Model tests
 
-| Prior endpoint | Model | Result |
-|----------------|-------|--------|
-| `K321,L363,Y400;F36` | Grok-4.6 | PASS (too easy) |
-
-Retest pending on `2,1;K321`.
+| Endpoint | Model | Answer | Result |
+|----------|-------|--------|--------|
+| `K321,L363,Y400;F36` (retired) | Grok-4.7 | `K321,L363,Y400;F36` | PASS (too easy) |
+| `K321,L363,Y400;F36` (retired) | Grok-4.6 | `K321,L363,Y400;F36` | PASS (too easy) |
+| `2,1;K321` (current) | Grok-4.7 / 4.6 | pending | — |
 
 ---
 
