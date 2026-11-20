@@ -1,9 +1,9 @@
-# Project Lumière — Protein-ligand (PK–mitapivat Figure 3)
+# Project Lumière — Protein-ligand (P2X1–NF449 Figure 6)
 
-**Assay:** Protein-ligand · **Subdomain:** Biochemistry / Structural biology  
-**Image:** MDPI *Crystals* 2024, 14, 441, Figure 3 (CC BY 4.0)
+**Assay:** Protein-ligand · **Subdomain:** Biochemistry / Pharmacology  
+**Image:** Oken et al., *Nat Commun* (2024), Figure 6 (CC BY 4.0)
 
-**Hardening:** Prior residue-list endpoint `K321,L363,Y400;F36` was solved by Grok-4.6. New endpoint requires backbone vs side-chain classification of the three direct H-bonds.
+**Pivot:** PK–mitapivat PoseEdit diagram was solved by both test models (residue list and backbone/side-chain endpoints). Switched to NF449 dose-response Figure 6 with a mutant-selection + fold-calculation endpoint.
 
 ---
 
@@ -12,90 +12,88 @@
 | Field | Value |
 |-------|-------|
 | Image | `protein_ligand_image.jpg` |
-| Paper | Nna-Mvondo et al., *Crystals* **14**, 441 (2024) |
-| DOI | https://doi.org/10.3390/cryst14050441 |
+| DOI | https://doi.org/10.1038/s41467-024-52636-4 |
 | License | CC BY 4.0 |
-| Panel | Left (2D interaction diagram) |
+| Panels used | A and C |
 
 ---
 
 ## 2. Prompt (paste)
 
-See `PROMPT.txt` (~990 chars).
+See `PROMPT.txt` (~802 chars).
 
 ---
 
 ## 3. GTFA
 
-**`2,1;K321`**
+**`K136A,39`**
 
-(L363 and Y400 = backbone; K321 side-chain \(\mathrm{NH_3^+}\))
+(Panel A: \(\mathrm{IC}_{50}\) K136A = 31 nM, WT = 0.80 nM → \(31/0.80=38.75\to 39\). Panel C: EC50 K136A = 1.9 µM vs WT 1.7 µM, within 2-fold. R292A fails the ATP EC50 criterion.)
 
 ---
 
 ## 4. Answer format
 
-Text (case sensitive) — `n_bb,n_sc;Residue`
+Text (case sensitive) — `Mutant,fold`
 
 ---
 
 ## 5. Golden solution
 
-Step 1: Use only the left panel. Identify the three direct protein-MTPV hydrogen bonds (dark-blue dashed legend style). Exclude green hydrophobic arcs and the cyan \(\pi\)-\(\pi\) contact.
+Step 1: Restrict to panels A and C. List single-point mutants present in both legends: R292A and K136A (N184A is A-only; R139A/K309A are not in A; double mutant excluded).
 
-Step 2 (vision): The three H-bond partners are K321, L363, and Y400.
+Step 2 (domain): Potency loss for an inhibitor means higher \(\mathrm{IC}_{50}\). Fold loss = \(\mathrm{IC}_{50,\mathrm{mut}}/\mathrm{IC}_{50,\mathrm{WT}}\). ATP \(\mathrm{EC}_{50}\) within 2-fold of WT means \(\mathrm{EC}_{50,\mathrm{mut}}/\mathrm{EC}_{50,\mathrm{WT}} \le 2\).
 
-Step 3 (domain + vision): Read how each residue is drawn:
-- L363 contacts MTPV via its backbone carbonyl oxygen → backbone
-- Y400 contacts MTPV via its backbone NH → backbone
-- K321 contacts MTPV via its terminal side-chain ammonium → side-chain
+Step 3 (vision + calc):
+- R292A: \(\mathrm{IC}_{50}\) fold \(25/0.80\approx 31\) (>10) but ATP \(\mathrm{EC}_{50}\) \(49/1.7\approx 29\) (not within 2-fold) → reject.
+- K136A: \(\mathrm{IC}_{50}\) fold \(31/0.80=38.75\to 39\) (>10); ATP \(\mathrm{EC}_{50}\) \(1.9/1.7\approx 1.1\) (within 2-fold) → accept.
 
-Step 4: \(n_{\mathrm{bb}}=2\), \(n_{\mathrm{sc}}=1\); side-chain residue = K321.
+Step 4: Report `K136A,39`.
 
-Step 5: Format.
-
-Final Answer: 2,1;K321
+Final Answer: K136A,39
 
 ---
 
 ## 6. Image description
 
-Keep `IMAGE_DESCRIPTION.txt` (visual-only; does not state backbone/side-chain classifications).
+See `IMAGE_DESCRIPTION.txt`.
 
 ---
 
 ## 7. Distractors (5)
 
-1. `3,0;K321` — treated all three as backbone  
-2. `1,2;K321` — swapped backbone/side-chain counts  
-3. `2,1;Y400` — wrong side-chain residue  
-4. `2,1;L363` — wrong side-chain residue  
-5. `2,1;F36` — used \(\pi\)-\(\pi\) residue as side-chain H-bond donor  
+1. `R292A,31` — meets IC50 fold but fails ATP EC50 filter  
+2. `K136A,31` — wrong fold arithmetic (used R292A numerator)  
+3. `N184A,6` — A-only mutant; fold ~6 is not >10  
+4. `K136A,39` wait that's GTFA - use `R139A,81` — panel B mutant not in A  
+5. `K136A/R139A,988` — double mutant excluded; wrong fold  
+
+Fix distractor 4/5:
+4. `R139A,81`  
+5. `K136A,40` — off-by-one rounding  
 
 ---
 
 ## 8. Model failure justification (template)
 
-Error type: **Label–element mis-binding** / interaction-role misread
+Error type: **Label–element or axis mis-binding** / wrong panel or mutant filter
 
-The model misclassified which hydrogen-bond protein partners use backbone vs side-chain atoms as drawn, and/or named the wrong side-chain residue, so the token diverges from `2,1;K321`. Visual chemical-role binding on the left-panel diagram, not a pure format error.
+The model selected the wrong mutant and/or mis-read legend \(\mathrm{IC}_{50}\)/\(\mathrm{EC}_{50}\) values used in the fold test, so the token diverges from `K136A,39`. Failure is visual legend-to-curve binding and/or mis-application of the dual IC50/EC50 criteria on the figure.
 
 ---
 
 ## 9. Model tests
 
-| Endpoint | Model | Answer | Result |
-|----------|-------|--------|--------|
-| `K321,L363,Y400;F36` (retired) | Grok-4.7 | `K321,L363,Y400;F36` | PASS (too easy) |
-| `K321,L363,Y400;F36` (retired) | Grok-4.6 | `K321,L363,Y400;F36` | PASS (too easy) |
-| `2,1;K321` (current) | Grok-4.7 / 4.6 | pending | — |
+Retest pending on `K136A,39`.
+
+Prior mitapivat diagram endpoints were dual-PASS (retired).
 
 ---
 
 ## 10. References
 
 ```
-Nna-Mvondo et al. High Resolution Crystal Structure of the Pyruvate Kinase Tetramer in Complex with the Allosteric Activator Mitapivat/AG-348. Crystals 14, 441 (2024). https://doi.org/10.3390/cryst14050441 (CC BY 4.0)
+Oken et al. Cryo-EM structures of the human P2X1 receptor reveal subtype-specific architecture and antagonism by supramolecular ligand-binding. Nature Communications (2024). https://doi.org/10.1038/s41467-024-52636-4 (CC BY 4.0)
 
-Figure 3: https://doi.org/10.3390/cryst14050441
+Figure 6 (NF449 IC50 / ATP EC50 dose-response panels): https://doi.org/10.1038/s41467-024-52636-4
 ```

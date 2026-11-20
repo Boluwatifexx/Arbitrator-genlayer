@@ -3,12 +3,11 @@
 | Field | Value |
 |-------|-------|
 | Assay | Protein-ligand |
-| Figure | Figure 3 from the paper below (full two-panel figure) |
-| File | `protein_ligand_image.jpg` (from `raw/crystals-14-00441-g003.png`) |
-| Paper | Nna-Mvondo et al., High Resolution Crystal Structure of the Pyruvate Kinase Tetramer in Complex with the Allosteric Activator Mitapivat/AG-348. *Crystals* **14**, 441 (2024). |
-| DOI | https://doi.org/10.3390/cryst14050441 |
-| Publisher | MDPI |
-| License | **CC BY 4.0** |
-| Image URL used | https://pub.mdpi-res.com/crystals/crystals-14-00441/article_deploy/html/images/crystals-14-00441-g003.png |
+| Figure | Figure 6 from the paper below |
+| File | `protein_ligand_image.jpg` (from `raw/p2x1_fig6.png`) |
+| Paper | Oken et al., Cryo-EM structures of the human P2X1 receptor reveal subtype-specific architecture and antagonism by supramolecular ligand-binding. *Nature Communications* **15**, Article number as published (2024). |
+| DOI | https://doi.org/10.1038/s41467-024-52636-4 |
+| License | **CC BY 4.0** (Nature Communications open access) |
+| Ligand | NF449 (P2X1 antagonist); ATP agonist curves in panel C |
 
-GTFA derived from labels visible on Figure 3 (left panel): direct H-bonds to K321, L363, Y400; π-π to F36.
+GTFA: among single-point mutants in both panels A and C, only **K136A** has >10-fold NF449 IC50 increase with ATP EC50 within 2-fold of WT. Fold = 31 / 0.80 = 38.75 → **39**.
