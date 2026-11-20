@@ -3,87 +3,92 @@
 **Assay:** Protein-ligand · **Subdomain:** Biochemistry / Structural biology  
 **Image:** MDPI *Crystals* 2024, 14, 441, Figure 3 (CC BY 4.0)
 
+**Hardening:** Prior residue-list endpoint `K321,L363,Y400;F36` was solved by Grok-4.6. New endpoint requires backbone vs side-chain classification of the three direct H-bonds.
+
 ---
 
 ## 1. Source fields
 
 | Field | Value |
 |-------|-------|
-| Image | `protein_ligand_image.jpg` / `/opt/cursor/artifacts/pk_mitapivat_figure3.jpg` |
+| Image | `protein_ligand_image.jpg` |
 | Paper | Nna-Mvondo et al., *Crystals* **14**, 441 (2024) |
 | DOI | https://doi.org/10.3390/cryst14050441 |
 | License | CC BY 4.0 |
-| Panel used for GTFA | Left (2D interaction diagram) |
+| Panel | Left (2D interaction diagram) |
 
 ---
 
 ## 2. Prompt (paste)
 
-```
-Image 1 shows interactions between human pyruvate kinase and mitapivat (MTPV). Use only the left panel (the 2D ligand-interaction diagram that includes an interaction-type legend). Using standard structural-biology definitions of hydrogen bonds, \(\pi\)-\(\pi\) stacking, and hydrophobic contacts as encoded by that legend's line styles, identify every protein residue that forms a direct hydrogen bond with MTPV. Report those residues in ascending sequence-number order as one-letter code plus residue number, comma-separated with no spaces (example: A12,T40). Separately identify the protein residue that forms the labeled \(\pi\)-\(\pi\) stacking interaction with MTPV and append it after a semicolon with no spaces. Final format: HbondResList;PiRes (example: A12,T40;F8). Do not use the right-hand 3D ribbon/surface panel. Do not count hydrophobic contacts as hydrogen bonds. Do not look up published annotations or PDB entries for this figure.
-```
-
-(~948 chars)
+See `PROMPT.txt` (~990 chars).
 
 ---
 
 ## 3. GTFA
 
-**`K321,L363,Y400;F36`**
+**`2,1;K321`**
+
+(L363 and Y400 = backbone; K321 side-chain \(\mathrm{NH_3^+}\))
 
 ---
 
 ## 4. Answer format
 
-Text (case sensitive for residue letters) — structured token `HbondResList;PiRes`
+Text (case sensitive) — `n_bb,n_sc;Residue`
 
 ---
 
 ## 5. Golden solution
 
-Step 1: Restrict reading to the left panel (2D diagram + legend). Ignore the right-hand ribbon/surface panel and its water-mediated dashed network.
+Step 1: Use only the left panel. Identify the three direct protein-MTPV hydrogen bonds (dark-blue dashed legend style). Exclude green hydrophobic arcs and the cyan \(\pi\)-\(\pi\) contact.
 
-Step 2 (domain): Using structural-biology interaction classes, map the legend styles: dark-blue dashed = hydrogen bond; cyan dashed with dots = \(\pi\)-\(\pi\) stacking; green arcs = hydrophobic contacts. Only the first class enters the H-bond list; only the second identifies the \(\pi\)-\(\pi\) partner.
+Step 2 (vision): The three H-bond partners are K321, L363, and Y400.
 
-Step 3 (vision): Three dark-blue dashed contacts link MTPV to protein residues labeled **K321**, **L363**, and **Y400** (each distance printed 2.7). Green hydrophobic arcs at F36/L404 are not hydrogen bonds.
+Step 3 (domain + vision): Read how each residue is drawn:
+- L363 contacts MTPV via its backbone carbonyl oxygen → backbone
+- Y400 contacts MTPV via its backbone NH → backbone
+- K321 contacts MTPV via its terminal side-chain ammonium → side-chain
 
-Step 4: Sort H-bond residues by ascending sequence number: K321, L363, Y400.
+Step 4: \(n_{\mathrm{bb}}=2\), \(n_{\mathrm{sc}}=1\); side-chain residue = K321.
 
-Step 5 (vision + domain): The cyan dashed \(\pi\)-\(\pi\) contact (labeled 4.8) joins MTPV’s central aromatic ring to **F36**.
+Step 5: Format.
 
-Step 6: Format as required.
-
-Final Answer: K321,L363,Y400;F36
+Final Answer: 2,1;K321
 
 ---
 
 ## 6. Image description
 
-See `IMAGE_DESCRIPTION.txt` (≥200 words, visual-only).
+Keep `IMAGE_DESCRIPTION.txt` (visual-only; does not state backbone/side-chain classifications).
 
 ---
 
 ## 7. Distractors (5)
 
-1. `L363,Y400;F36` — missed K321 H-bond  
-2. `K321,L363,Y400,L404;F36` — counted hydrophobic L404 as H-bond  
-3. `K321,L363,Y400;L404` — wrong \(\pi\)-\(\pi\) partner  
-4. `Y400,L363,K321;F36` — correct set but not ascending sequence order  
-5. `K321,L363,Y400;F36,L404` — appended hydrophobic contact into PiRes  
+1. `3,0;K321` — treated all three as backbone  
+2. `1,2;K321` — swapped backbone/side-chain counts  
+3. `2,1;Y400` — wrong side-chain residue  
+4. `2,1;L363` — wrong side-chain residue  
+5. `2,1;F36` — used \(\pi\)-\(\pi\) residue as side-chain H-bond donor  
 
 ---
 
 ## 8. Model failure justification (template)
 
-Error type: **Label–element or axis mis-binding** / wrong interaction class
+Error type: **Label–element mis-binding** / interaction-role misread
 
-The model mis-assigned residues to hydrogen-bond vs hydrophobic vs \(\pi\)-\(\pi\) classes on the left-panel diagram, and/or failed ascending sequence ordering, so the token diverges from `K321,L363,Y400;F36`. Failure is visual interaction-to-residue binding on the figure, not a formatting typo after a correct read.
+The model misclassified which hydrogen-bond protein partners use backbone vs side-chain atoms as drawn, and/or named the wrong side-chain residue, so the token diverges from `2,1;K321`. Visual chemical-role binding on the left-panel diagram, not a pure format error.
 
 ---
 
 ## 9. Model tests
 
-Pending dual closed-book vision retest.
+| Prior endpoint | Model | Result |
+|----------------|-------|--------|
+| `K321,L363,Y400;F36` | Grok-4.6 | PASS (too easy) |
+
+Retest pending on `2,1;K321`.
 
 ---
 
@@ -92,5 +97,5 @@ Pending dual closed-book vision retest.
 ```
 Nna-Mvondo et al. High Resolution Crystal Structure of the Pyruvate Kinase Tetramer in Complex with the Allosteric Activator Mitapivat/AG-348. Crystals 14, 441 (2024). https://doi.org/10.3390/cryst14050441 (CC BY 4.0)
 
-Figure 3 (PK–MTPV interaction diagram): https://doi.org/10.3390/cryst14050441
+Figure 3: https://doi.org/10.3390/cryst14050441
 ```
