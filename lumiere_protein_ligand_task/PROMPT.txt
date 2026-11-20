@@ -1,5 +1,7 @@
 Image 1 shows NF449 inhibition and ATP activation dose-response data for wild-type and mutant human P2X1 receptors. Use panels A and C only.
 
-Among the single-point mutants that appear in both panel A and panel C, identify the mutant for which NF449 inhibitory potency is reduced by more than 10-fold relative to WT (compare the legend \(\mathrm{IC}_{50}\) values) while the ATP \(\mathrm{EC}_{50}\) remains within 2-fold of the WT \(\mathrm{EC}_{50}\) (compare the legend \(\mathrm{EC}_{50}\) values). Compute the NF449 potency-loss fold as \(\mathrm{IC}_{50,\mathrm{mutant}} / \mathrm{IC}_{50,\mathrm{WT}}\) using the central (mean) legend values, and round that fold to the nearest integer.
-
-Report Mutant,fold with no spaces (example: E55A,12). Do not look up published annotations for this figure.
+Among the single-point mutants that appear in both panel A and panel C, identify the mutant for which NF449 inhibitory potency is reduced by more than 10-fold relative to WT (compare the legend \(\mathrm{IC}_{50}\) values) while the ATP \(\mathrm{EC}_{50}\) remains within 2-fold of the WT \(\mathrm{EC}_{50}\) (compare the legend \(\mathrm{EC}_{50}\) values). For that mutant, compute the selectivity ratio
+\[
+S = \frac{\mathrm{IC}_{50,\mathrm{mut}}/\mathrm{IC}_{50,\mathrm{WT}}}{\mathrm{EC}_{50,\mathrm{mut}}/\mathrm{EC}_{50,\mathrm{WT}}}
+\]
+using the central (mean) legend values. Report \(S\) rounded to one decimal place (example: 12.4). Do not look up published annotations for this figure.
