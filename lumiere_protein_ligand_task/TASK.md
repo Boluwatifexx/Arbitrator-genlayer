@@ -80,6 +80,8 @@ Wrong π-stack residue and/or wrong TM6 label count on panel a versus `F168,3`.
 
 Retest pending on `F168,3`.
 
+Retired dual-PASS: P2X1 panel H `R292,6.3`; plus prior mitapivat/P2X1 Fig5/Fig6 endpoints.
+
 ---
 
 ## 10. References
