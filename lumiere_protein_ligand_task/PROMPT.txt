@@ -1,7 +1,11 @@
-Image 1 shows androgen receptor (AR)–lamin A/C proximity ligation and domain-mapping experiments. Use panels C, E, and F.
+Image 1 is a 3D atomic close-up of a pyruvate-kinase–mitapivat (MTPV) binding pocket.
 
-From the panel C quantification graph, read the pink horizontal mean/median bars for ARCC4 and for DHT. Report each as an integer by rounding to the nearest 5 puncta per cell (ARCC4 first, then DHT).
+1) Which colored F36 ring (green or cyan) lies face-on against the central ligand phenylene?
+2) How many distinct red water spheres are drawn mediating dashed hydrogen bonds to the ligand (integer count of water molecules, not dashes)?
+3) Which single labeled residue makes a 2.7 Å hydrogen-bond dash from a side-chain nitrogen to the ligand amide carbonyl (not a backbone H-bond)? Report one-letter+number.
 
-From panel E, report the starting residue number of the AR ligand-binding domain (LBD). Separately, using panels E–F, which single AR domain fragment is pulled down with lamin A/C in the His blot (choose exactly one: NTD or LBD)?
+Report exactly three comma-separated tokens with no spaces:
+F36_color,water_count,residue
+(example: cyan,2,R455)
 
-Report exactly: arcc_med,dht_med,lbd_start,domain with no spaces (example: 10,20,100,NTD). Do not look up published annotations for this figure.
+Do not look up published annotations for this figure.

@@ -3,8 +3,10 @@
 | Field | Value |
 |-------|-------|
 | Assay | Protein-ligand |
-| Figure | Figure 3 |
-| File | `protein_ligand_image.jpg` ← `raw/ar_lamin/fig3.png` |
-| DOI | https://doi.org/10.1038/s41467-024-52344-z |
+| Source article | Han et al., *Crystals* 2024, 14, 441 |
+| DOI | https://doi.org/10.3390/cryst14050441 |
 | License | CC BY 4.0 |
-| GTFA | `5,40,699,NTD` |
+| Figure | Figure 3 (PoseEdit / 3D MTPV pocket); task image is the 3D close-up crop (2D schematic legend removed) |
+| Raw file | `raw/crystals-14-00441-g003.png` |
+| Task file | `protein_ligand_image.jpg` |
+| GTFA | `green,1,K321` |

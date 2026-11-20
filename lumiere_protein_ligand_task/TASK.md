@@ -1,9 +1,9 @@
-# Project Lumière — Protein-ligand (AR–lamin PLA / DHT–ARCC4 Figure 3)
+# Project Lumière — Protein-ligand (PK–mitapivat PoseEdit pocket)
 
-**Assay:** Protein-ligand · **Subdomain:** Cellular pharmacology / PLA  
-**Image:** *Nat Commun* https://doi.org/10.1038/s41467-024-52344-z Figure 3 (CC BY 4.0)
+**Assay:** Protein-ligand · **Subdomain:** Structure-based ligand recognition  
+**Image:** *Crystals* https://doi.org/10.3390/cryst14050441 Figure 3 — 3D MTPV pocket crop (CC BY 4.0)
 
-**Pivot:** Labeled structure/SAR/ITC OCR PASSed both Groks. New endpoint: panel-C ligand-treatment medians (ARCC4 PROTAC vs DHT agonist) + LBD start + NTD vs LBD pull-down.
+**Pivot:** Labeled OCR / H-bond lists / SAR tables PASSed both local Groks. New endpoint: face-on F36 color + ligand-contacting water count + side-chain N→amide carbonyl 2.7 Å donor.
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Field | Value |
 |-------|-------|
-| Image | `protein_ligand_image.jpg` ← `raw/ar_lamin/fig3.png` |
-| DOI | https://doi.org/10.1038/s41467-024-52344-z |
+| Image | `protein_ligand_image.jpg` ← 3D crop of `raw/crystals-14-00441-g003.png` |
+| DOI | https://doi.org/10.3390/cryst14050441 |
 | License | CC BY 4.0 |
-| Panels | C, E, F |
+| Panels | Figure 3 3D close-up only |
 
 ---
 
@@ -26,31 +26,29 @@ See `PROMPT.txt`.
 
 ## 3. GTFA
 
-**`5,40,699,NTD`**
+**`green,1,K321`**
 
-(Panel C pink bars ≈5 for ARCC4 and ≈38–40 for DHT → nearest 5 = 5,40; panel E LBD starts at 699; panels E–F His blot pulls down AR-NTD, not AR-LBD.)
+(Green F36 is face-on to the phenylene; only one red water sphere has a direct dashed contact to MTPV; K321 is the sole side-chain N → ligand amide carbonyl 2.7 Å donor. L363 and Y400 are backbone 2.7 Å contacts.)
 
 ---
 
 ## 4. Answer format
 
-Text — `arcc_med,dht_med,lbd_start,domain`
+Text — `F36_color,water_count,residue`
 
 ---
 
 ## 5. Golden solution
 
-Step 1 (vision): Panel C graph — ARCC4 pink bar near ~5; DHT pink bar near ~40 (EtOH mid ~25–30 for orientation).
+Step 1 (vision): Identify which F36 ring packs face-on against the central phenylene → **green** (cyan F36 is offset).
 
-Step 2: Round to nearest 5 → **5,40**.
+Step 2 (vision): Count red water spheres with a dashed line that reaches an MTPV atom. Two waters are drawn; only the central (V362-adjacent) water contacts the ligand. The L404-adjacent water bridges protein only → **1**.
 
-Step 3 (vision): Panel E LBD labeled **699–920** → start **699**.
+Step 3 (vision): Among 2.7 Å H-bond dashes, select the side-chain nitrogen donor to the ligand amide carbonyl → **K321** (not L363 backbone C=O or Y400 backbone NH).
 
-Step 4 (vision + domain): Panel F His blot shows AR-NTD recovered in lamin IP; AR-LBD is absent/faint → **NTD**. Consistent with ligand-independent NTD–rod contact (DHT increases AR levels/PLA; ARCC4 degrades AR and collapses PLA).
+Step 4: Report `green,1,K321`.
 
-Step 5: Report `5,40,699,NTD`.
-
-Final Answer: 5,40,699,NTD
+Final Answer: green,1,K321
 
 ---
 
@@ -62,34 +60,43 @@ See `IMAGE_DESCRIPTION.txt`.
 
 ## 7. Distractors (5)
 
-1. `5,40,699,LBD` — wrong domain  
-2. `5,35,699,NTD` — DHT median not rounded to nearest 5  
-3. `0,40,699,NTD` — treated ARCC4 as zero  
-4. `5,40,560,NTD` — used DBD/NTD boundary instead of LBD start  
-5. `40,5,699,NTD` — swapped ARCC4/DHT medians  
+1. `green,2,K321` — counts both waters, including the protein-only bridge  
+2. `cyan,1,K321` — wrong F36 copy  
+3. `green,1,L363` — backbone carbonyl contact, not side-chain N→amide  
+4. `green,1,Y400` — backbone NH→sulfonyl contact  
+5. `green,0,K321` — missed the ligand-contacting water  
 
 ---
 
 ## 8. Model failure justification (template)
 
-Error type: **Label–element mis-binding** (graph bars / blot lanes) and/or domain misassignment
+Error type: **Label–element / contact mis-binding** (water mediation scope and/or F36 stack assignment)
 
-Wrong median pair, LBD start, and/or domain versus `5,40,699,NTD`.
+Wrong water count and/or F36 color and/or 2.7 Å donor versus `green,1,K321`.
 
 ---
 
 ## 9. Model tests
 
-Local Grok-4.7-xhigh and Grok-4.6-xhigh both returned `5,40,699,NTD` (PASS). Holding dual-fail bar still unmet after PLA/domain pivot.
+| Model | Trial | Output | Result |
+|-------|-------|--------|--------|
+| grok-4.7-xhigh | 1 | `green,2,K321` | FAIL |
+| cursor-grok-4.6-xhigh | 1 | `green,2,K321` | FAIL |
+| grok-4.7-xhigh | 2 | `green,1,K321` | PASS |
+| cursor-grok-4.6-xhigh | 2 | `green,2,K321` | FAIL |
+| grok-4.7-xhigh | 3 | `green,1,K321` | PASS |
+| cursor-grok-4.6-xhigh | 3 | `green,2,K321` | FAIL |
 
-Retired PASS this session: Parkin SAR/ITC; DAT distances; B⁰AT1 grid/distances; Polθ residue/mechanism/noncompetitive; A3AR; P2X1; mitapivat.
+**Holding (≥1 of 2 fail): MET** — Grok-4.6-xhigh consistently returns `green,2,K321`.
+
+Retired local dual-PASS this session: AR–lamin `5,40,699,NTD`; Parkin fold/SAR/ITC; DAT; B⁰AT1; Polθ; CB2 H-bonds; P2X1 color/inner-outer; A3AR mutant grids; H2R cross-bind; TMEM106B site residues.
 
 ---
 
 ## 10. References
 
 ```
-Nuclear lamin A/C phosphorylation by loss of androgen receptor leads to cancer-associated fibroblast activation. Nature Communications (2024). https://doi.org/10.1038/s41467-024-52344-z (CC BY 4.0)
+Han X, et al. High Resolution Crystal Structure of the Pyruvate Kinase Tetramer in Complex with the Allosteric Activator Mitapivat/AG-348. Crystals (2024) 14:441. https://doi.org/10.3390/cryst14050441 (CC BY 4.0)
 
-Figure 3: https://doi.org/10.1038/s41467-024-52344-z
+Figure 3: https://www.mdpi.com/2073-4352/14/5/441
 ```
