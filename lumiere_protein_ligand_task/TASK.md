@@ -84,6 +84,7 @@ The model picked the wrong mutant and/or failed to form \(S=(\mathrm{IC}_{50}\ma
 
 | Endpoint | Model | Answer | Result |
 |----------|-------|--------|--------|
+| `K136A,39` (retired) | Grok-4.7 | `K136A,39` | PASS |
 | `K136A,39` (retired) | Grok-4.6 | `K136A,39` | PASS |
 | `34.7` (current) | pending | — | — |
 
