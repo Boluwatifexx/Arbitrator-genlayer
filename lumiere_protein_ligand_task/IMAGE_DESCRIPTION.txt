@@ -6,4 +6,4 @@ A zoomed PLA/DAPI field highlights puncta density at higher magnification. Domai
 
 Later panels show lamin A/C immunofluorescence intensity changes after AR knockdown, in cancer-associated versus normal fibroblasts, and after AR overexpression rescue, each with quantification plots.
 
-Printed panel letters, treatment names (including EtOH, ARCC4, and DHT), domain residue ranges, blot lane annotations, axis titles, and statistical labels are part of the figure graphics. The overall composition pairs ligand-responsive PLA pharmacology with domain-mapping biochemistry for the AR–lamin complex.
+Printed panel letters, treatment names (including EtOH, ARCC4, and DHT), domain residue ranges, blot lane annotations, axis titles, and statistical labels are part of the figure graphics. The overall composition pairs ligand-responsive PLA pharmacology with domain-mapping biochemistry for the AR–lamin complex.  Treatment labels, pink summary bars, and residue-range annotations are the primary readable cues for the ligand and domain endpoints.
