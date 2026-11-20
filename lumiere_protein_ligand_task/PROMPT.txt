@@ -1,7 +1,1 @@
-Image 1 shows NF449 inhibition and ATP activation dose-response data for wild-type and mutant human P2X1 receptors. Use panels A and C only.
-
-Among the single-point mutants that appear in both panel A and panel C, identify the mutant for which NF449 inhibitory potency is reduced by more than 10-fold relative to WT (compare the legend \(\mathrm{IC}_{50}\) values) while the ATP \(\mathrm{EC}_{50}\) remains within 2-fold of the WT \(\mathrm{EC}_{50}\) (compare the legend \(\mathrm{EC}_{50}\) values). For that mutant, compute the selectivity ratio
-\[
-S = \frac{\mathrm{IC}_{50,\mathrm{mut}}/\mathrm{IC}_{50,\mathrm{WT}}}{\mathrm{EC}_{50,\mathrm{mut}}/\mathrm{EC}_{50,\mathrm{WT}}}
-\]
-using the central (mean) legend values. Report \(S\) rounded to one decimal place (example: 12.4). Do not look up published annotations for this figure.
+Image 1 shows the antagonist NF449 bound to human P2X1. Use panels B and C to determine how many distinct NF449 molecules occupy the single highlighted competitive site (the two molecules are drawn with differently colored carbon skeletons). P2X receptors are homotrimeric ion channels with three equivalent competitive/orthosteric sites arranged around the extracellular vestibule. Assuming the same dual-ligand occupancy at each of those three sites, compute the total number of NF449 molecules bound per intact receptor. Report \(n_{\mathrm{site}},n_{\mathrm{receptor}}\) as two integers comma-separated with no spaces (example: 1,3). Do not look up published annotations for this figure.
