@@ -3,7 +3,7 @@
 **Assay:** Protein-ligand · **Subdomain:** Biochemistry / Structural biology  
 **Image:** Oken et al., *Nat Commun* (2024), Figure 5 (CC BY 4.0)
 
-**Pivot:** Stoichiometry `2,6` and Fig 6 legend arithmetic were dual-PASS. New endpoint binds the labeled \(2.8\,\text{\AA}\) contact to its residue and sums R139 distances in panel F.
+**Pivot:** Panel F `K136,8.9` was solved by Grok-4.6. New endpoint uses panel H: residue contacting both NF449 colors + sum of those two labeled distances.
 
 ---
 
@@ -14,7 +14,7 @@
 | Image | `protein_ligand_image.jpg` (Fig 5) |
 | DOI | https://doi.org/10.1038/s41467-024-52636-4 |
 | License | CC BY 4.0 |
-| Panel | F |
+| Panel | H |
 
 ---
 
@@ -26,9 +26,9 @@ See `PROMPT.txt`.
 
 ## 3. GTFA
 
-**`K136,8.9`**
+**`R292,6.3`**
 
-(Panel F: \(2.8\,\text{\AA}\) contact is K136; R139 distances \(3.3+2.7+2.9=8.9\))
+(Panel H: R292 contacts green NF449 at \(3.0\,\text{\AA}\) and tan NF449 at \(3.3\,\text{\AA}\); sum \(6.3\))
 
 ---
 
@@ -40,33 +40,31 @@ Text (case sensitive) — `Res,sum`
 
 ## 5. Golden solution
 
-Step 1: Restrict to panel F.
+Step 1: Restrict to panel H (\(180^{\circ}\) rotated companion of panel G).
 
-Step 2 (vision): Locate the dashed contact labeled \(2.8\); the protein partner is **K136**.
+Step 2 (vision + domain): Find the residue with dashed contacts to both ligand carbon colors (green and tan). That residue is **R292** (bridges inner and outer NF449).
 
-Step 3 (vision): Read the three dashed contacts from **R139** labeled \(3.3\), \(2.7\), and \(2.9\).
+Step 3: Read the two labeled distances from R292: \(3.0\) (green) and \(3.3\) (tan).
 
-Step 4: Sum \(3.3+2.7+2.9=8.9\). Do not include the K136 \(2.8\) distance in the R139 sum.
+Step 4: Sum \(3.0+3.3=6.3\).
 
-Step 5: Format `K136,8.9`.
-
-Final Answer: K136,8.9
+Final Answer: R292,6.3
 
 ---
 
 ## 6. Image description
 
-Keep `IMAGE_DESCRIPTION.txt` (describes panel F distances without stating which residue owns \(2.8\)).
+See `IMAGE_DESCRIPTION.txt` (must not assign the dual-contact residue or the \(3.0\)/\(3.3\) pairing).
 
 ---
 
 ## 7. Distractors (5)
 
-1. `K136,11.7` — included the \(2.8\) K136 distance in the R139 sum  
-2. `R139,8.9` — swapped residue identity for the \(2.8\) contact  
-3. `K136,6.0` — summed only two of three R139 distances  
-4. `K136,8.8` — arithmetic/rounding error  
-5. `N184,8.9` — wrong residue for the \(2.8\) contact  
+1. `R139,8.9` — R139 contacts only one NF449 color (three distances on green)  
+2. `R292,6.0` — misread distances  
+3. `K309,6.3` — wrong residue  
+4. `R292,5.9` — arithmetic error  
+5. `R292,3.3` — reported a single distance instead of the sum
 
 ---
 
@@ -74,15 +72,15 @@ Keep `IMAGE_DESCRIPTION.txt` (describes panel F distances without stating which 
 
 Error type: **Label–element mis-binding**
 
-The model bound the wrong residue to the \(2.8\,\text{\AA}\) label and/or summed the wrong set of angstrom labels for R139, so the token diverges from `K136,8.9`. Visual label-to-residue binding on panel F.
+The model selected the wrong residue as the dual-ligand contact and/or summed the wrong angstrom labels in panel H, so the token diverges from `R292,6.3`.
 
 ---
 
 ## 9. Model tests
 
-Retest pending on `K136,8.9`.
+Retest pending on `R292,6.3`.
 
-Retired dual-PASS: mitapivat diagram; Fig6 `K136A,39`; Fig6 `S=34.7`; Fig5 stoichiometry `2,6`.
+Retired PASS: mitapivat; Fig6 arithmetic; Fig5 `2,6`; panel F `K136,8.9` (Grok-4.6).
 
 ---
 
