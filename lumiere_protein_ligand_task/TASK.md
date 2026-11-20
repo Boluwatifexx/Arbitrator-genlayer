@@ -41,7 +41,7 @@ Ordered list / text — two integers `n_site,n_receptor`
 
 Step 1 (vision): In panels B/C, two distinct NF449 molecules (tan and green carbon skeletons) occupy the highlighted competitive site → \(n_{\mathrm{site}}=2\).
 
-Step 2 (domain): Canonical P2X receptors are homotrimers with three equivalent orthosteric/competitive sites around the extracellular vestibule.
+Step 2 (domain): Domain knowledge: P2X receptors are homotrimers; each intact channel has three equivalent orthosteric/competitive sites around the extracellular vestibule (solver supplies this; not stated as a numeral in the prompt).
 
 Step 3: Same dual occupancy at each site → \(n_{\mathrm{receptor}}=2\times 3=6\).
 
